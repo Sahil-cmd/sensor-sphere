@@ -1,0 +1,96 @@
+schema_version: "1.0"
+
+sensor_id: "velodyne_vlp32c"
+sensor_type: "LiDAR"
+manufacturer: "Velodyne"
+model: "VLP-32C (Ultra Puck)"
+
+field_of_view:
+  horizontal: 360.0
+  vertical: 40.0
+  vertical_range: "-25° to +15°"
+
+min_range: 1.0
+max_range: 200.0
+
+frame_rate: 10.0
+frame_rate_unit: "Hz"
+frame_rate_range: "5-20 Hz"
+
+angular_resolution:
+  vertical: 0.33
+  horizontal_min: 0.1
+  horizontal_max: 0.4
+  unit: "degrees"
+  vertical_note: "non-linear distribution"
+
+range_accuracy: "±3 cm (typical)"
+
+channels: 32
+
+points_per_second:
+  single_return: 600000
+  dual_return: 1200000
+
+returns: "Single/Dual"
+
+laser_specification:
+  wavelength: "903 nm"
+  laser_class: "Class 1 Eye-safe (IEC60825-1:2014)"
+
+operating_temperature:
+  min: -20
+  max: 60
+  unit: "°C"
+
+storage_temperature:
+  min: -40
+  max: 85
+  unit: "°C"
+
+environmental_rating: "IP67"
+communication_interface: "100 Mbps Ethernet"
+
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+
+driver_link_ros1: "https://github.com/ros-drivers/velodyne"
+driver_link_ros2: "https://github.com/ros-drivers/velodyne/tree/ros2"
+
+datasheet_link: "https://data.ouster.io/downloads/datasheets/velodyne/63-9378_Rev-F_Ultra-Puck_Datasheet_Web.pdf"
+github_repo: "https://github.com/ros-drivers/velodyne"
+
+key_features:
+  - "32 channels; dual-return mode"
+  - "5–20 Hz rotation rate"
+  - "~600k pts/s (single); ~1.2M pts/s (dual)"
+  - "Integrated web server; 100 Mb Ethernet"
+
+use_cases:
+  - "High-density mapping and autonomy"
+  - "Robotics, security, UAVs"
+
+tags:
+  - "3D"
+  - "mid-to-long-range"
+  - "outdoor"
+
+power_consumption: 10.0
+power_consumption_unit: "W"
+operating_voltage: "10.5-18 VDC (with interface box)"
+
+weight: 925.0
+weight_unit: "g"
+weight_note: "without cabling and interface box"
+
+size:
+  diameter: 103.3
+  height: 72.1
+  unit: "mm"
+
+price_range:
+  currency: "USD"
+  note: "Contact manufacturer"
+
+product_page: "https://velodynelidar.com/products/ultra-puck/"

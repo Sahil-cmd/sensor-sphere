@@ -1,0 +1,141 @@
+schema_version: "1.0"
+
+sensor_id: "sick_lms1000"
+sensor_type: "LiDAR"
+manufacturer: "SICK"
+model: "LMS1000 (LMS1104C-111031S01)"
+
+measurement_principle: "HDDM+"
+channels: 1
+
+angular_resolution:
+  horizontal: [0.75, 0.1875, 0.375]
+  horizontal_unit: "degrees"
+  horizontal_note: "0.75° / 0.375° / 0.1875° (interlaced modes)"
+
+field_of_view:
+  horizontal: 275.0
+
+min_range: 0.2
+max_range: 64.0
+range_performance:
+  low_reflectivity: "16m @ 10% remission factor"
+  high_reflectivity: "30m @ 90% remission factor"
+
+frame_rate: 150.0
+frame_rate_unit: "Hz"
+frame_rate_options: [150, 37.5]
+frame_rate_note: "150 Hz or 4×37.5 Hz (interlaced)"
+
+response_time: 7
+response_time_unit: "ms"
+response_time_note: "depends on filter settings and object size"
+
+scan_rate_range: "55,000 to 165,000 measurement points/s"
+
+accuracy:
+  systematic_error: "±60 mm"
+  statistical_error: "≤30 mm"
+
+spot_size: "10.4 mrad x 26.2 mrad"
+
+returns: "3 (multi-echo)"
+
+environmental_rating: "IP67"
+communication_interface: "Ethernet"
+
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+
+driver_link_ros1: "https://github.com/SICKAG/sick_scan_xd"
+driver_link_ros2: "https://github.com/SICKAG/sick_scan_xd"
+
+datasheet_link: "https://www.sick.com/us/en/lidar-sensors/2d-lidar-sensors/lms1000/lms1104c-111031s01/p/p687383"
+github_repo: "https://github.com/SICKAG/sick_scan_xd"
+
+key_features:
+  - "HDDM+ with multi-echo (3 echoes)"
+  - "Scanning frequency 150 Hz or 4×37.5 Hz (interlaced)"
+  - "Angular resolution 0.75° / 0.375° / 0.1875° (interlaced modes)"
+  - "Integrated field evaluation and web server"
+  - "10/100 Mb Ethernet (TCP/UDP)"
+  - "Self-heating"
+
+use_cases:
+  - "High-speed contour detection"
+  - "Outdoor automation and monitoring"
+  - "Localization and navigation"
+  - "Field evaluation applications"
+
+tags:
+  - "2D"
+  - "industrial"
+  - "outdoor"
+  - "indoor"
+  - "multi-echo"
+
+price_range:
+  currency: "USD"
+  note: "Contact manufacturer"
+
+supported_platforms:
+  - "Linux"
+  - "Windows"
+
+laser_specification:
+  wavelength: "850 nm"
+  laser_class: "Class 1 (IEC 60825-1:2014, EN 60825-1:2014+A11:2021)"
+  light_source: "Infrared"
+
+communication:
+  interface: "Ethernet 10/100 MBit/s"
+  protocols: "TCP/IP, UDP/IP"
+  functions: "Data interface (read result output), OPC, NTP, Measured data output"
+
+field_evaluation:
+  max_field_sets: 10
+  max_evaluation_cases: 10
+  output_data: "Contamination indication, IMU (secondary sensor data)"
+
+filtering:
+  - "Fog filter"
+  - "Particle filter"
+  - "Average filter"
+  - "Median filter"
+  - "Edge filter"
+  - "Echo filter"
+
+power_consumption: 18.0
+power_consumption_unit: "W"
+power_note: "Typical 18W, Max 42W, Power-up max 35W for 5s"
+
+supply_voltage: "10V DC to 30V DC"
+
+size:
+  length: 151.9
+  width: 150.0
+  height: 92.5
+  unit: "mm"
+
+weight: 1200.0
+weight_unit: "g"
+
+operating_conditions:
+  temperature: "-30°C to +50°C"
+  storage_temperature: "-40°C to +75°C"
+  humidity: "2% to >1,000% (Reflector)"
+  ambient_light_immunity: "80 klx"
+
+housing:
+  material: "AlSi12, Optics cover: polycarbonate"
+  color: "Gray (RAL 7042)"
+  enclosure_rating: "IP65/IP67"
+
+reliability:
+  mtbf: "50 years"
+  mttfd: ">100 years"
+
+sensor_image:
+
+notes: "HDDM+ 2D LiDAR with 275° horizontal FOV. Multi-echo capability (3 echoes). Range: 16m @ 10% remission, 30m @ 90% remission. Configurable scanning frequencies and angular resolutions."

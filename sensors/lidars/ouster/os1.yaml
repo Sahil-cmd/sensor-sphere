@@ -1,0 +1,132 @@
+schema_version: "1.0"
+
+sensor_id: "ouster_os1"
+sensor_type: "LiDAR"
+manufacturer: "Ouster"
+model: "OS1"
+
+channels:
+  options: [32, 64, 128]
+  note: "32, 64, or 128 channels configurable"
+
+horizontal_resolution:
+  options: [512, 1024, 2048]
+  note: "configurable"
+
+range_resolution: "0.3 cm"
+
+angular_sampling_accuracy:
+  vertical: "±0.01°"
+  horizontal: "±0.01°"
+
+field_of_view:
+  horizontal: 360.0
+  vertical: 45.0
+  vertical_range: "+22.5° to -22.5°"
+
+min_range: 0.3
+max_range: 120.0
+range_performance:
+  high_reflectivity: "100-120m (80% Lambertian, >90% detection)"
+  low_reflectivity: "45-55m (10% Lambertian, >90% detection)"
+
+range_accuracy: "±3cm (Lambertian), ±10cm (retroreflectors)"
+range_precision:
+  near: "0.3-1m: ±0.7cm"
+  mid: "1-20m: ±1cm"
+  far_mid: "20-50m: ±2cm"
+  far: ">50m: ±5cm"
+
+frame_rate: 10.0
+frame_rate_unit: "Hz"
+frame_rate_options: [10, 20]
+frame_rate_note: "10 or 20 Hz configurable"
+
+data_latency: "<10 ms"
+timestamp_resolution: "<1 μs"
+
+false_positive_rate: "1/10,000"
+returns: "1 (strongest)"
+
+environmental_rating: "IP68"
+communication_interface: "Gigabit Ethernet"
+
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+
+driver_link_ros1: "https://github.com/ouster-lidar/ouster-ros"
+driver_link_ros2: "https://github.com/ouster-lidar/ouster-ros/tree/ros2"
+
+datasheet_link: "https://data.ouster.io/downloads/datasheets/datasheet-revd-v2p0-os1.pdf"
+github_repo: "https://github.com/ouster-lidar/ouster-ros"
+
+key_features:
+  - "Fixed resolution per frame (512/1024/2048)"
+  - "Integrated IMU output (100 Hz)"
+  - "Crosstalk immunity; camera-grade NIR & intensity"
+  - "PTP/NMEA/PPS time sync"
+
+use_cases:
+  - "Autonomous robots & drones"
+  - "Perception for AMRs/AGVs"
+  - "Infrastructure sensing"
+
+tags:
+  - "indoor"
+  - "outdoor"
+
+price_range:
+  currency: "USD"
+  note: "Contact manufacturer"
+
+supported_platforms:
+  - "Linux"
+  - "Windows"
+
+laser_specification:
+  wavelength: "865 nm"
+  laser_class: "Class 1 eye-safe (IEC/EN 60825-1: 2014)"
+  beam_diameter: "9.5 mm (exiting sensor)"
+  beam_divergence: "0.18° (FWHM)"
+
+lidar_output:
+  connection: "UDP over Gigabit Ethernet"
+  data_rate:
+    "32_channel": "66 Mbps"
+    "64_channel": "129 Mbps"
+    "128_channel": "254 Mbps"
+  points_per_second:
+    "32_channel": 655360
+    "64_channel": 1310720
+    "128_channel": 2621440
+  data_per_point: "Range, signal, reflectivity, near-infrared, channel, azimuth angle, timestamp"
+
+integrated_imu:
+  output_rate: "100 Hz"
+  note: "6-axis IMU with accelerometer and gyroscope"
+
+time_synchronization:
+  - "PTP (Precision Time Protocol)"
+  - "NMEA"
+  - "PPS (Pulse Per Second)"
+
+multi_sensor_immunity: true
+
+power_consumption: 14.0
+power_consumption_unit: "W"
+power_note: "typical consumption"
+
+size:
+  length: 85.0
+  width: 85.0
+  height: 58.35
+  unit: "mm"
+
+weight: 425.0
+weight_unit: "g"
+weight_note: "377g without thermal cap, 447g with thermal cap"
+
+sensor_image:
+
+notes: "Range examples: 100 m @ >90% detect prob (80% target) and 45–55 m on 10% targets (conditions in datasheet). Data latency <10 ms; rotation 10/20 Hz. Weight depends on cap (377 g without, 447 g with thermal cap)."

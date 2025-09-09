@@ -1,0 +1,113 @@
+schema_version: "1.0"
+
+sensor_id: "sick_lrs4000"
+sensor_type: "LiDAR"
+manufacturer: "SICK"
+model: "LRS4000"
+
+measurement_principle: "HDDM+"
+channels: 1
+
+angular_resolution:
+  horizontal: 0.02
+  horizontal_unit: "degrees"
+  horizontal_note: "High angular resolution up to 0.02°"
+
+frequency_resolution_ratio: 0.04
+frequency_resolution_ratio_unit: "degrees"
+frequency_resolution_ratio_note: "up to 0.04° at 25 Hz"
+
+field_of_view:
+  horizontal: 360.0
+
+min_range: 0.2
+max_range: 300.0
+range_performance:
+  low_reflectivity: "80m @ 10% remission factor"
+  high_reflectivity: "250m @ 90% remission factor"
+
+frame_rate: 12.5
+frame_rate_unit: "Hz"
+frame_rate_options: [12.5, 25]
+frame_rate_note: "12.5 Hz or 25 Hz configurable"
+
+returns: "3 (multi-echo)"
+
+environmental_rating: "IP65/IP67"
+communication_interface: "Ethernet"
+
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+
+driver_link_ros1: "https://github.com/SICKAG/sick_scan_xd"
+driver_link_ros2: "https://github.com/SICKAG/sick_scan_xd"
+
+datasheet_link: "https://www.sick.com/us/en/lidar-sensors/2d-lidar-sensors/lrs4000/c/g444477"
+github_repo: "https://github.com/SICKAG/sick_scan_xd"
+
+key_features:
+  - "Long-range 2D LiDAR: up to 300m"
+  - "High angular resolution (down to 0.02°)"
+  - "12.5 Hz / 25 Hz scan frequency"
+  - "HDDM+ and multi-echo technology (3 echoes)"
+  - "Integrated field evaluation and web server"
+  - "Self-heating for harsh environments"
+  - "360° aperture angle with rotatable connections"
+
+use_cases:
+  - "Outdoor area monitoring"
+  - "Collision avoidance"
+  - "Yard/stack profile measurement"
+  - "Automation of container handling in ports"
+  - "Detection of bulk material stockpiles"
+  - "Container data determination (dimensions/position)"
+  - "Monitoring of roof surfaces and facades"
+
+tags:
+  - "2D"
+  - "long-range"
+  - "outdoor"
+  - "indoor"
+  - "industrial"
+  - "multi-echo"
+
+price_range:
+  currency: "USD"
+  note: "Contact manufacturer"
+
+supported_platforms:
+  - "Linux"
+  - "Windows"
+
+field_evaluation:
+  integrated_application: "Field evaluation, output of measurement data"
+
+digital_io:
+  inputs: 6
+  outputs: 6
+
+heating: "Self-heating"
+
+operating_conditions:
+  temperature: "-30°C to +50°C"
+
+connection:
+  type: "3 x M12"
+  color: "Gray (RAL 7042)"
+  enclosure_rating: "IP65/IP67"
+
+part_number: "LRS4581R-230001"
+
+size:
+  length: 151.9
+  width: 150.0
+  height: 126.7
+  unit: "mm"
+
+weight: 1700.0
+weight_unit: "g"
+
+sensor_image:
+
+notes: "Long-range 2D LiDAR with 360° scanning and up to 300m range. High angular resolution up to 0.02°. Multi-echo HDDM+ technology with integrated field evaluation. Range: 80m @ 10% remission, 250m @ 90% remission."

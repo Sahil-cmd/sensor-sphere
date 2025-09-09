@@ -1,0 +1,131 @@
+schema_version: "1.0"
+
+sensor_id: "ouster_os0"
+sensor_type: "LiDAR"
+manufacturer: "Ouster"
+model: "OS0"
+
+channels:
+  options: [32, 64, 128]
+  note: "32, 64, or 128 channels configurable"
+
+horizontal_resolution:
+  options: [512, 1024, 2048]
+  note: "configurable"
+
+range_resolution: "0.1 cm"
+range_resolution_note: "For Low Data Rate Profile the Range Resolution = 0.8cm"
+
+angular_sampling_accuracy:
+  vertical: "±0.01°"
+  horizontal: "±0.01°"
+
+field_of_view:
+  horizontal: 360.0
+  vertical: 90.0
+  vertical_range: "+45° to -45°"
+
+min_range: 0.5
+max_range: 75.0
+range_performance:
+  high_reflectivity: "75m (80% Lambertian, >90% detection)"
+  low_reflectivity: "35m (10% Lambertian, >90% detection)"
+
+frame_rate: 10.0
+frame_rate_unit: "Hz"
+frame_rate_options: [10, 20]
+frame_rate_note: "10 or 20 Hz configurable"
+
+data_latency: "<10 ms"
+timestamp_resolution: "<1 μs"
+
+false_positive_rate: "1/10,000"
+returns: "2 (strongest, second strongest)"
+
+environmental_rating: "IP68"
+communication_interface: "Gigabit Ethernet"
+
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+
+driver_link_ros1: "https://github.com/ouster-lidar/ouster-ros"
+driver_link_ros2: "https://github.com/ouster-lidar/ouster-ros/tree/ros2"
+
+datasheet_link: "https://ouster.com/products/hardware/os0-lidar-sensor"
+github_repo: "https://github.com/ouster-lidar/ouster-ros"
+
+key_features:
+  - "Ultra-wide 90° vertical FOV with 360° horizontal coverage"
+  - "Dual returns (strongest, second strongest)"
+  - "Fixed resolution per frame (512/1024/2048)"
+  - "PTP/gPTP/PPS/NMEA time sync"
+  - "Multi-sensor crosstalk suppression"
+  - "Camera-grade NIR & intensity"
+
+use_cases:
+  - "Autonomous vehicles"
+  - "Heavy machinery"
+  - "Robots and drones"
+  - "Mapping"
+
+tags:
+  - "indoor"
+  - "outdoor"
+
+price_range:
+  currency: "USD"
+  note: "Contact manufacturer"
+
+supported_platforms:
+  - "Linux"
+  - "Windows"
+
+laser_specification:
+  wavelength: "865 nm"
+  laser_class: "Class 1 eye-safe (IEC/EN 60825-1: 2014)"
+  beam_diameter: "5 mm (exiting sensor)"
+  beam_divergence: "0.35° (FWHM)"
+
+lidar_output:
+  connection: "UDP over Gigabit Ethernet"
+  data_rate:
+    "32_channel": "66 Mbps"
+    "64_channel": "129 Mbps"
+    "128_channel": "254 Mbps"
+  points_per_second:
+    "32_channel": 1310720
+    "64_channel": 2621440
+    "128_channel": 5242880
+  data_per_point: "Range, signal, reflectivity, near-infrared, channel, azimuth angle, timestamp"
+
+integrated_imu:
+  output_rate: "100 Hz"
+  note: "6-axis IMU with accelerometer and gyroscope"
+  data_per_sample: "3 axis gyro, 3 axis accelerometer"
+
+time_synchronization:
+  - "PTP (Precision Time Protocol)"
+  - "gPTP"
+  - "NMEA"
+  - "PPS (Pulse Per Second)"
+
+multi_sensor_immunity: true
+
+power_consumption: 17.0
+power_consumption_unit: "W"
+power_note: "14-20W typical (22W peak at startup, 28W peak at -40°C)"
+
+size:
+  diameter: 87.0
+  height: 58.35
+  height_with_cap: 74.2
+  unit: "mm"
+
+weight: 430.0
+weight_unit: "g"
+weight_note: "430g without cap, 500g with radial cap, 445g with halo cap"
+
+sensor_image:
+
+notes: "Ultra-wide 90° vertical FOV. Range: 75m @ 80% reflectivity, 35m @ 10% reflectivity. Dual returns supported. Hardware-triggered angle firing with fixed resolution per rotation."

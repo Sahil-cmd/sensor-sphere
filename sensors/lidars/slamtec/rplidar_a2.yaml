@@ -1,0 +1,115 @@
+schema_version: "1.0"
+
+sensor_id: "slamtec_rplidar_a2"
+sensor_type: "LiDAR"
+manufacturer: "Slamtec"
+model: "RPLIDAR A2 (A2M8)"
+
+sample_frequency:
+  min: 2000
+  typical: 4000
+  max: 4100
+  unit: "Hz"
+
+angular_resolution:
+  min: 0.45
+  typical: 0.9
+  max: 1.35
+  unit: "degrees"
+  note: "at 10Hz scan rate"
+
+distance_resolution:
+  near_range: "<0.5 mm (< 1.5 meters)"
+  all_range: "<1% of distance"
+
+channels: 1
+
+field_of_view:
+  horizontal: 360.0
+
+min_range: 0.15
+max_range: 8.0
+
+frame_rate: 10.0
+frame_rate_unit: "Hz"
+frame_rate_range: "5-15 Hz"
+
+sample_duration: 0.25
+sample_duration_unit: "ms"
+
+environmental_rating: "None"
+communication_interface: "Serial/UART + PWM motor control"
+communication_details:
+  power_interface: "4.9-5.5V DC"
+  data_interface: "Serial UART"
+  motor_control: "PWM signal"
+
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+
+driver_link_ros1: "https://github.com/Slamtec/rplidar_ros"
+driver_link_ros2: "https://github.com/Slamtec/rplidar_ros/tree/ros2"
+
+datasheet_link: "https://cdn.sparkfun.com/assets/e/a/f/9/8/LD208_SLAMTEC_rplidar_datasheet_A2M8_v1.0_en.pdf"
+github_repo: "https://github.com/Slamtec/rplidar_ros"
+
+key_features:
+  - "Up to 4 k samples/s; 5–15 Hz scan"
+  - "0.9° typical angular resolution at 10 Hz"
+  - "Class I eye-safe; OPTMAG design for longevity"
+
+use_cases:
+  - "Mobile robot navigation and localization"
+  - "Indoor mapping and SLAM"
+  - "Environment scanning and 3D re-modeling"
+  - "Smart toy localization and obstacle avoidance"
+  - "Service/cleaning robot navigation"
+
+tags:
+  - "indoor"
+  - "2D scanning"
+  - "triangulation"
+  - "eye-safe"
+
+price_range:
+  currency: "USD"
+  note: "Contact manufacturer"
+
+supported_platforms:
+  - "Linux"
+  - "Windows"
+
+laser_specification:
+  wavelength: "775-795 nm"
+  power: "3-5 mW (peak)"
+  laser_class: "FDA Class I"
+  safety: "Eye-safe"
+
+operational_principle: "Laser triangulation"
+scanning_method: "Mechanical rotation (clockwise)"
+returns: "Single"
+
+technology:
+  - "OPTMAG technology for extended lifespan"
+  - "High-speed vision acquisition and processing"
+
+power_consumption: 3.0
+power_consumption_unit: "W"
+power_specification:
+  voltage: "4.9-5.5V (typical 5V)"
+  current_off: "200-220 mA (5V power, motor off)"
+  current_on: "450-600 mA (5V power, motor on)"
+  startup_current: "1200-1500 mA"
+
+size:
+  diameter: 76.0
+  height: 41.0
+  unit: "mm"
+
+weight: 190.0
+weight_unit: "g"
+
+sensor_image:
+
+notes: "Measurement range 0.15–8 m (white 70% reflectivity). Interface is separate 5V power and UART/PWM control on core; kits often provide USB. Angular resolution varies with scan frequency."

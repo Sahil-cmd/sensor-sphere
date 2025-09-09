@@ -1,0 +1,105 @@
+schema_version: "1.0"
+
+sensor_id: "slamtec_rplidar_a1"
+sensor_type: "LiDAR"
+manufacturer: "Slamtec"
+model: "RPLIDAR A1 (A1M8)"
+
+channels: 1
+
+field_of_view:
+  horizontal: 360.0
+
+min_range: 0.15
+max_range: 6.0
+
+frame_rate: 5.5
+frame_rate_unit: "Hz"
+frame_rate_range: "1-10 Hz configurable"
+
+sample_frequency:
+  min: 2000
+  max: 2010
+  unit: "Hz"
+
+angular_resolution:
+  typical: 1.0
+  unit: "degrees"
+  note: "at 5.5Hz scan rate"
+
+distance_resolution:
+  near_range: "<0.5 mm (< 1.5 meters)"
+  all_range: "<1% of distance"
+
+sample_duration: 0.5
+sample_duration_unit: "ms"
+
+environmental_rating: "None"
+communication_interface: "Serial/UART + USB adapter"
+communication_details:
+  core_interface: "UART (3.3V TTL)"
+  dev_kit_interface: "USB adapter included"
+  power_requirement: "<5mW infrared laser"
+
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+
+driver_link_ros1: "https://github.com/Slamtec/rplidar_ros"
+driver_link_ros2: "https://github.com/Slamtec/rplidar_ros/tree/ros2"
+
+datasheet_link: "https://bucket-download.slamtec.com/d1e428e7efbdcd65a8ea111061794fb8d4ccd3a0/LD108_SLAMTEC_rplidar_datasheet_A1M8_v3.0_en.pdf"
+github_repo: "https://github.com/Slamtec/rplidar_ros"
+
+key_features:
+  - "Low-cost 2D 360° scanning lidar"
+  - "Triangulation-based ranging with modulated IR laser (Class 1)"
+  - "Typical 5.5 Hz scans (1–10 Hz configurable)"
+  - "UART (3.3 V TTL) core interface; dev kit USB adapter"
+
+use_cases:
+  - "Home and service robot navigation"
+  - "General robotics localization"
+  - "SLAM and environment scanning"
+  - "Education"
+
+tags:
+  - "2D"
+  - "indoor"
+  - "budget"
+
+supported_platforms:
+  - "Linux"
+  - "Windows"
+
+power_consumption: 2.5
+power_consumption_unit: "W"
+
+laser_specification:
+  type: "Infrared laser"
+  power: "<5 mW"
+  laser_class: "Class I"
+  safety: "Eye-safe"
+  modulation: "Modulated pulse"
+
+operational_principle: "Laser triangulation"
+scanning_method: "Mechanical rotation (clockwise)"
+returns: "Single"
+
+technology:
+  - "High-speed vision acquisition and processing"
+  - "Built-in angular encoding system"
+  - "Speed detection and adaptive system"
+
+price_range:
+  currency: "USD"
+  note: "Contact manufacturer"
+
+size:
+  length: 96.8
+  width: 70.3
+  height: 55.0
+  unit: "mm"
+
+weight: 190.0
+weight_unit: "g"

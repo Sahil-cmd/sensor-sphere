@@ -1,0 +1,134 @@
+schema_version: "1.0"
+
+sensor_id: "ouster_os2"
+sensor_type: "LiDAR"
+manufacturer: "Ouster"
+model: "OS2"
+
+channels:
+  options: [32, 64, 128]
+  note: "32, 64, or 128 channels configurable"
+
+horizontal_resolution:
+  options: [512, 1024, 2048]
+  note: "configurable"
+
+range_resolution: "0.3 cm"
+
+angular_sampling_accuracy:
+  vertical: "±0.01°"
+  horizontal: "±0.01°"
+
+field_of_view:
+  horizontal: 360.0
+  vertical: 22.5
+  vertical_range: "+11.25° to -11.25°"
+
+min_range: 1.0
+max_range: 240.0
+range_performance:
+  high_reflectivity: "210-240m (80% Lambertian, >90% detection @ 100klx)"
+  low_reflectivity: "80-100m (10% Lambertian, >90% detection @ 100klx)"
+
+range_accuracy: "±3cm (Lambertian), ±10cm (retroreflectors)"
+range_precision:
+  near: "1-30m: ±2.5cm"
+  mid: "30-60m: ±4cm"
+  far: ">60m: ±8cm"
+
+frame_rate: 10.0
+frame_rate_unit: "Hz"
+frame_rate_options: [10, 20]
+frame_rate_note: "10 or 20 Hz configurable"
+
+data_latency: "<10 ms"
+timestamp_resolution: "<1 μs"
+
+false_positive_rate: "1/10,000"
+returns: "1 (strongest)"
+
+environmental_rating: "IP68"
+communication_interface: "Gigabit Ethernet"
+
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+
+driver_link_ros1: "https://github.com/ouster-lidar/ouster-ros"
+driver_link_ros2: "https://github.com/ouster-lidar/ouster-ros/tree/ros2"
+
+datasheet_link: "https://data.ouster.io/downloads/datasheets/datasheet-revd-v2p0-os2.pdf"
+github_repo: "https://github.com/ouster-lidar/ouster-ros"
+
+key_features:
+  - "Long-range high-resolution imaging lidar"
+  - "Fixed resolution per frame (512/1024/2048)"
+  - "Fixed intrinsic calibration"
+  - "Multi-sensor crosstalk immunity"
+  - "PTP/gPTP/PPS/NMEA time sync"
+  - "Camera-grade NIR & intensity"
+
+use_cases:
+  - "High-speed autonomous platforms"
+  - "Long-range perception for mapping"
+  - "Fixed infrastructure monitoring"
+  - "Machinery and robotics"
+
+tags:
+  - "indoor"
+  - "outdoor"
+
+price_range:
+  currency: "USD"
+  note: "Contact manufacturer"
+
+supported_platforms:
+  - "Linux"
+  - "Windows"
+
+laser_specification:
+  wavelength: "865 nm"
+  laser_class: "Class 1 eye-safe (IEC/EN 60825-1: 2014)"
+  beam_diameter: "19 mm (exiting sensor)"
+  beam_divergence: "0.09° (FWHM)"
+
+lidar_output:
+  connection: "UDP over Gigabit Ethernet"
+  data_rate:
+    "32_channel": "66 Mbps"
+    "64_channel": "129 Mbps"
+    "128_channel": "254 Mbps"
+  points_per_second:
+    "32_channel": 655360
+    "64_channel": 1310720
+    "128_channel": 2621440
+  data_per_point: "Range, signal, reflectivity, near-infrared, channel, azimuth angle, timestamp"
+
+integrated_imu:
+  output_rate: "100 Hz"
+  note: "6-axis IMU with accelerometer and gyroscope (InvenSense ICM-20948)"
+  data_per_sample: "3 axis gyro, 3 axis accelerometer"
+
+time_synchronization:
+  - "PTP (Precision Time Protocol)"
+  - "gPTP"
+  - "NMEA"
+  - "PPS (Pulse Per Second)"
+
+multi_sensor_immunity: true
+
+power_consumption: 21.0
+power_consumption_unit: "W"
+power_note: "18-24W typical (28W peak at startup, 30W peak at <10°C)"
+
+size:
+  diameter: 119.6
+  height: 98.9
+  unit: "mm"
+
+weight: 1100.0
+weight_unit: "g"
+
+sensor_image:
+
+notes: "Long-range high-resolution LiDAR. Range: 210-240m @ 80% reflectivity, 80-100m @ 10% reflectivity. Hardware-triggered angle firing with fixed resolution per rotation. Single return (strongest)."

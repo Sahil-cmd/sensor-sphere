@@ -1,0 +1,105 @@
+schema_version: "1.0"
+
+sensor_id: "hesai_pandarqt"
+sensor_type: "LiDAR"
+manufacturer: "Hesai"
+model: "PandarQT"
+
+channels: 64
+
+angular_resolution:
+  vertical: 1.5
+  horizontal: 0.6
+  unit: "degrees"
+
+field_of_view:
+  horizontal: 360.0
+  vertical: 104.6
+  vertical_range: "+52.3° to -52.3°"
+
+min_range: 0.1
+max_range: 60.0
+
+frame_rate: 10.0
+frame_rate_unit: "Hz"
+
+range_accuracy:
+  near: "±5 cm (0.1 to 0.5 m)"
+  mid: "±2.5 cm (0.5 to 15 m)"
+  far: "±10 cm (15 to 30 m)"
+
+points_per_second:
+  single_return: 384000
+  dual_return: 768000
+
+operational_principle: "Time of Flight"
+scanning_method: "Mechanical Rotation"
+returns: "Single/Dual"
+interference_rejection: true
+
+ptp_clock:
+  accuracy: "≤1 μs"
+  drift: "≤1 μs/s"
+  source: "GPS/PTP"
+
+operating_temperature:
+  min: -20
+  max: 65
+  unit: "°C"
+
+environmental_rating: "IP67"
+communication_interface: "UDP/IP Ethernet (100BASE-T1)"
+
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+
+driver_link_ros1: "https://github.com/HesaiTechnology/HesaiLidar_General_ROS"
+driver_link_ros2: "https://github.com/HesaiTechnology/HesaiLidar_General_ROS/tree/ROS2"
+
+datasheet_link: "https://www.datrontechnology.co.uk/wp-content/uploads/2020/03/20191127-PandarQT-Brochure.pdf"
+github_repo: "https://github.com/HesaiTechnology/HesaiLidar_General_ROS"
+
+key_features:
+  - "64-channel short-range lidar for blind-spot coverage"
+  - "Ultra-wide 360° × ~105° FOV"
+  - "Single/Dual returns; interference rejection"
+  - "PTP time sync (≤1 μs accuracy)"
+
+use_cases:
+  - "Autonomous vehicle blind-spot detection"
+  - "Low-speed logistics vehicle perception"
+  - "Robotics in tight/near-field spaces"
+
+tags:
+  - "indoor"
+  - "outdoor"
+  - "blind-spot"
+
+price_range:
+  currency: "USD"
+  note: "Contact manufacturer"
+
+supported_platforms:
+  - "Linux"
+
+communication_details:
+  data_transmission: "UDP/IP Ethernet (100BASE-T1 Slave Mode)"
+  data_outputs: "Distance, Azimuth Angle, Background Illumination"
+
+power_consumption: 8.0
+power_consumption_unit: "W"
+operating_voltage: "9-55 VDC"
+laser_class: "Class 1 Eye Safe"
+
+size:
+  height: 76.0
+  diameter: 80.2
+  unit: "mm"
+
+weight: 470.0
+weight_unit: "g"
+
+sensor_image:
+
+notes: "Vertical channel distribution spans +52.3° to −52.3°. Output rate up to 768k pts/s (dual). Operating voltage 9–55 V DC."

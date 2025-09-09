@@ -1,0 +1,100 @@
+schema_version: "1.0"
+
+sensor_id: "hesai_pandarxt16"
+sensor_type: "LiDAR"
+manufacturer: "Hesai"
+model: "PandarXT-16"
+
+channels: 16
+
+field_of_view:
+  horizontal: 360.0
+  vertical: 30.0
+
+min_range: 0.05
+max_range: 120.0
+
+frame_rate: 10.0
+frame_rate_unit: "Hz"
+frame_rate_options: [5, 10, 20]
+frame_rate_note: "5 Hz, 10 Hz, or 20 Hz configurable"
+
+angular_resolution:
+  horizontal_5hz: 0.09
+  horizontal_10hz: 0.18
+  horizontal_20hz: 0.36
+  vertical: 2.0
+  unit: "degrees"
+  note: "horizontal resolution varies with frame rate"
+
+range_accuracy: "±1 cm (typical), ±2 cm (standard)"
+range_precision: "0.5 cm (typical, 1σ), 2 cm (standard)"
+
+returns: "Single/Dual"
+returns_note: "Single Return (Last/Strongest/First), Dual Return (Last and Strongest)"
+
+points_per_second:
+  single_return: 320000
+  dual_return: 640000
+
+environmental_rating: "IP67"
+communication_interface: "Ethernet"
+
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+
+driver_link_ros1: "https://github.com/HesaiTechnology/HesaiLidar_General_ROS"
+driver_link_ros2: "https://github.com/HesaiTechnology/HesaiLidar_General_ROS/tree/ROS2"
+
+datasheet_link: "https://www.hesaitech.com/en/download"  # User manual source
+github_repo: "https://github.com/HesaiTechnology/HesaiLidar_General_ROS"
+
+key_features:
+  - "16 channels with single/dual returns"
+  - "UDP over 100BASE-TX; time sync via GPS/PTP"
+  - "Range accuracy ±1–2 cm (typical/standard)"
+  - "PTP clock accuracy ≤1 μs"
+
+use_cases:
+  - "Robotics and logistics vehicles"
+  - "Autonomous platforms with medium range needs"
+
+tags:
+  - "outdoor"
+  - "industrial"
+
+price_range:
+supported_platforms:
+  - "Linux"
+
+power_consumption: 9.0
+power_consumption_unit: "W"
+
+size:
+  height: 76.0
+  diameter: 103.0
+  unit: "mm"
+  note: "Height 76.0 mm (side connector) / 83.0 mm (bottom connector), Diameter Ø100.0/103.0 mm"
+
+weight: 800.0
+weight_unit: "g"
+weight_note: "800g (side connector), 900g (bottom connector)"
+
+laser_specification:
+  wavelength: "905 nm"
+  laser_class: "Class 1 Eye Safe"
+
+operating_temperature:
+  min: -20
+  max: 65
+  unit: "°C"
+
+storage_temperature:
+  min: -40
+  max: 85
+  unit: "°C"
+
+sensor_image:
+
+notes: "Ingress protection is IP6K7 (per manual). Rotation 5/10/20 Hz with horizontal resolutions ~0.09/0.18/0.36°. Operates −20 to +65 °C; 9–36 V DC. Outputs 320 k pts/s (single) or 640 k (dual)."

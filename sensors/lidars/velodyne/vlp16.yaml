@@ -1,0 +1,95 @@
+schema_version: "1.0"
+
+sensor_id: "velodyne_vlp16"
+sensor_type: "LiDAR"
+manufacturer: "Velodyne"
+model: "VLP-16 (Puck)"
+
+field_of_view:
+  horizontal: 360.0
+  vertical: 30.0
+  vertical_range: "+15.0° to -15.0°"
+
+min_range: 1.0
+max_range: 100.0
+
+frame_rate: 10.0
+frame_rate_unit: "Hz"
+frame_rate_range: "5-20 Hz"
+
+channels: 16
+
+angular_resolution:
+  vertical: 2.0
+  horizontal_min: 0.1
+  horizontal_max: 0.4
+  unit: "degrees"
+
+range_accuracy: "±3 cm (typical)"
+
+points_per_second:
+  single_return: 300000
+  dual_return: 600000
+
+laser_specification:
+  wavelength: "903 nm"
+  laser_class: "Class 1 Eye-safe (IEC 60825-1:2007 & 2014)"
+
+operating_temperature:
+  min: -10
+  max: 60
+  unit: "°C"
+
+storage_temperature:
+  min: -40
+  max: 105
+  unit: "°C"
+
+environmental_rating: "IP67"
+communication_interface: "100 Mbps Ethernet"
+returns: "Dual"
+
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+
+driver_link_ros1: "https://github.com/ros-drivers/velodyne"
+driver_link_ros2: "https://github.com/ros-drivers/velodyne/tree/ros2"
+
+datasheet_link: "https://www.mapix.com/wp-content/uploads/2018/07/63-9229_Rev-H_Puck-_Datasheet_Web-1.pdf"
+github_repo: "https://github.com/ros-drivers/velodyne"
+
+key_features:
+  - "16 channels; dual-return mode"
+  - "5–20 Hz rotation rate"
+  - "~300k pts/s (single); ~600k pts/s (dual)"
+  - "Integrated web server; 100 Mb Ethernet"
+
+use_cases:
+  - "Robotics and mobile mapping"
+  - "Autonomous vehicles and UAVs"
+  - "Security and infrastructure"
+
+tags:
+  - "3D"
+  - "mid-range"
+  - "outdoor"
+
+power_consumption: 8.0
+power_consumption_unit: "W"
+operating_voltage: "9-18 VDC"
+
+size:
+  length: 103.3
+  width: 103.3
+  height: 71.7
+  unit: "mm"
+
+weight: 830.0
+weight_unit: "g"
+
+price_range:
+  currency: "USD"
+  note: "Contact manufacturer"
+
+product_page: "https://velodynelidar.com/products/puck/"
