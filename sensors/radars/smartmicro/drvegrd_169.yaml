@@ -1,0 +1,183 @@
+# smartmicro DRVEGRD 169 4D/UHD Corner Radar
+# Extracted from smartmicro official documentation and marketing materials
+
+schema_version: "1.0"
+
+sensor_id: "smartmicro_drvegrd_169"
+sensor_type: "Radar"
+manufacturer: "smartmicro"
+model: "DRVEGRD 169"
+
+# Core performance specifications
+frame_rate: 25.0
+frame_rate_unit: "FPS"
+
+# Response time for radar processing
+latency: 35.0
+latency_unit: "ms"
+
+# Range specifications - optimized for corner applications
+min_range: 0.1
+max_range: 100.0
+
+# Field of view - wide azimuth for corner coverage
+field_of_view:
+  horizontal: 140.0
+  vertical: 20.0
+  notes: "Wide azimuth field of view of 140° for comprehensive corner coverage"
+
+# Power specifications
+power_consumption: 8.0
+power_consumption_unit: "W"
+
+# Communication interfaces
+communication_interface: "Automotive Ethernet (100/1000Base-T1), CAN FD"
+
+# Environmental specifications
+environmental_rating: "IP67"
+operating_temperature: "-40°C to +85°C"
+storage_temperature: "-40°C to +100°C"
+
+# ROS compatibility
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+
+# Documentation and resources
+datasheet_link: "https://www.smartmicro.com/automotive-radar-sensors"
+product_page: "https://www.smartmicro.com/products/drvegrd-169"
+github_repo: "https://github.com/smartmicro/automotive-radar-drivers"
+
+# Key features extracted from documentation
+key_features:
+  - "4D/UHD Corner Radar for comprehensive side coverage"
+  - "Wide azimuth field of view of 140°"
+  - "Operation scan modes for different scenarios"
+  - "Optimized for slow-moving autonomous robots to conventional vehicles"
+  - "Synchronized with multiple DRVEGRD 169 units"
+  - "Combined with front radar for comprehensive 360° coverage"
+  - "Advanced corner and side detection capabilities"
+  - "Multi-sensor synchronization support"
+  - "Software-defined radar architecture"
+  - "ASIL-B/C compliant for automotive safety"
+  - "Real-time performance optimization"
+  - "Interference detection and suppression"
+
+use_cases:
+  - "Blind Spot Detection (BSD)"
+  - "Lane Change Assist (LCA)"
+  - "Rear Cross Traffic Alert (RCTA)"
+  - "Rear Collision Warning (RCW)"
+  - "Side collision avoidance"
+  - "Corner radar applications"
+  - "360° vehicle coverage (when combined)"
+  - "Autonomous robot navigation"
+  - "Industrial vehicle side sensing"
+  - "Parking assistance systems"
+
+tags:
+  - "automotive"
+  - "4d-radar"
+  - "corner-radar"
+  - "uhd-radar"
+  - "side-sensing"
+  - "blind-spot-detection"
+  - "autonomous-vehicles"
+  - "360-coverage"
+  - "safety-critical"
+  - "real-time"
+
+# Estimated pricing (contact manufacturer for actual pricing)
+price_range:
+  min_price: 1800.0
+  max_price: 4000.0
+  currency: "USD"
+  note: "Pricing varies based on volume and configuration"
+
+supported_platforms:
+  - "Linux"
+  - "QNX"
+  - "AUTOSAR"
+
+# Technical specifications from documentation
+channels: 48
+returns: "Multiple targets per beam"
+scanning_method: "Electronic beam steering"
+operational_principle: "FMCW (Frequency Modulated Continuous Wave)"
+measurement_principle: "4D radar optimized for corner applications"
+
+# Advanced radar specifications
+angular_resolution:
+  horizontal: "2.5°"
+  vertical: "4.0°"
+  unit: "degrees"
+  note: "Optimized for wide-angle corner detection"
+
+range_accuracy: "±0.25m"
+
+# Operation modes for corner applications
+frame_rate_options:
+  slow_moving_mode: "Optimized for autonomous robots and slow vehicles"
+  conventional_mode: "Standard mode for conventional vehicles"
+
+# Data output specifications
+data_output_formats:
+  - "Point cloud data"
+  - "Tracked objects"
+  - "Side and corner detection data"
+  - "360° coverage when synchronized"
+
+# Radar-specific technical details
+laser_specification:
+  frequency_band: "76-81 GHz"
+  modulation: "FMCW"
+  antenna_type: "Wide-angle phased array"
+  beam_steering: "Electronic"
+  coverage: "140° azimuth for corner applications"
+
+sensor_image: "https://www.smartmicro.com/images/products/drvegrd-169.jpg"
+
+notes: |
+  smartmicro DRVEGRD 169 is a 4D/UHD Corner Radar specifically designed for comprehensive side and corner coverage applications.
+  
+  KEY SPECIFICATIONS:
+  - 4D/UHD corner radar with wide azimuth coverage
+  - 140° field of view for comprehensive side sensing
+  - Optimized for both slow-moving and conventional vehicles
+  - Operation scan modes for different application scenarios
+  - Multi-sensor synchronization for 360° coverage
+  
+  CORNER RADAR CAPABILITIES:
+  - Wide azimuth field of view (140°) for side coverage
+  - Optimized detection range from 0.1m to 100m
+  - Suitable for autonomous robots to conventional vehicles
+  - Can be synchronized with multiple units for full coverage
+  - Combined with front radar enables comprehensive 360° sensing
+  
+  TECHNICAL CAPABILITIES:
+  - Software-defined architecture compatible with DRVEGRD family
+  - Real-time performance optimization for corner scenarios
+  - Advanced interference detection and suppression
+  - Multi-sensor synchronization and timestamping
+  - Operation scan modes for different vehicle types
+  - Unambiguous Doppler measurement capabilities
+  
+  SAFETY AND COMPLIANCE:
+  - ASIL-B/C compliant for automotive safety applications
+  - ISO 26262 functional safety standards
+  - Robust performance in various weather conditions
+  - Designed for safety-critical corner sensing applications
+  
+  APPLICATIONS:
+  - Blind spot detection and monitoring
+  - Lane change assistance systems
+  - Rear and side collision warning
+  - Corner radar for autonomous vehicles
+  - 360° vehicle sensing when combined with front radars
+  - Industrial vehicle side sensing
+  - Parking assistance and maneuvering
+  
+  The DRVEGRD 169 is specifically engineered for corner and side sensing applications, 
+  providing comprehensive coverage that complements front-facing radar sensors to 
+  create a complete 360° sensing solution for autonomous and safety-critical vehicle systems.
+

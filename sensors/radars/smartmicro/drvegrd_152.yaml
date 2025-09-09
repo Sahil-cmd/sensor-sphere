@@ -1,0 +1,179 @@
+# smartmicro DRVEGRD 152 4D/UHD Front Radar
+# Extracted from smartmicro official documentation and marketing materials
+
+schema_version: "1.0"
+
+sensor_id: "smartmicro_drvegrd_152"
+sensor_type: "Radar"
+manufacturer: "smartmicro"
+model: "DRVEGRD 152"
+
+# Core performance specifications
+frame_rate: 20.0
+frame_rate_unit: "FPS"
+
+# Response time for radar processing
+latency: 45.0
+latency_unit: "ms"
+
+# Range specifications
+min_range: 0.2
+max_range: 180.0
+
+# Field of view
+field_of_view:
+  horizontal: 100.0
+  vertical: 15.0
+  notes: "100° field of view in azimuth with 2° UHD angular separation"
+
+# Power specifications
+power_consumption: 10.0
+power_consumption_unit: "W"
+
+# Communication interfaces
+communication_interface: "Automotive Ethernet (100/1000Base-T1), CAN FD"
+
+# Environmental specifications
+environmental_rating: "IP67"
+operating_temperature: "-40°C to +85°C"
+storage_temperature: "-40°C to +100°C"
+
+# ROS compatibility
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+
+# Documentation and resources
+datasheet_link: "https://www.smartmicro.com/automotive-radar-sensors"
+product_page: "https://www.smartmicro.com/products/drvegrd-152"
+github_repo: "https://github.com/smartmicro/automotive-radar-drivers"
+
+# Key features extracted from documentation
+key_features:
+  - "4D/UHD Front Radar with ultra-high definition"
+  - "100° field of view in azimuth"
+  - "2° UHD angular separation for precise detection"
+  - "Range coverage up to 180 meters"
+  - "Two operation modes for flexibility"
+  - "Balance between range extension and fine resolution"
+  - "Advanced target separation capabilities"
+  - "Multi-sensor synchronization support"
+  - "Software-defined radar architecture"
+  - "ASIL-B/C compliant for automotive safety"
+  - "Interference detection and suppression"
+  - "Real-time performance optimization"
+
+use_cases:
+  - "Forward Collision Warning (FCW)"
+  - "Collision Avoidance (CA)"
+  - "Automatic Emergency Braking (AEB)"
+  - "Adaptive Cruise Control (ACC)"
+  - "Front Cross Traffic Alert (FCTA)"
+  - "Autonomous vehicle front sensing"
+  - "Advanced Driver Assistance Systems (ADAS)"
+  - "Highway driving assistance"
+  - "Urban traffic navigation"
+  - "Industrial vehicle safety"
+
+tags:
+  - "automotive"
+  - "4d-radar"
+  - "uhd-radar"
+  - "front-radar"
+  - "adas"
+  - "autonomous-vehicles"
+  - "ultra-high-definition"
+  - "safety-critical"
+  - "real-time"
+  - "dual-mode"
+
+# Estimated pricing (contact manufacturer for actual pricing)
+price_range:
+  min_price: 2000.0
+  max_price: 5000.0
+  currency: "USD"
+  note: "Pricing varies based on volume and configuration"
+
+supported_platforms:
+  - "Linux"
+  - "QNX"
+  - "AUTOSAR"
+
+# Technical specifications from documentation
+channels: 64
+returns: "Multiple targets per beam"
+scanning_method: "Electronic beam steering"
+operational_principle: "FMCW (Frequency Modulated Continuous Wave)"
+measurement_principle: "4D radar with UHD resolution"
+
+# Advanced radar specifications
+angular_resolution:
+  horizontal: "2.0°"
+  vertical: "3.0°"
+  unit: "degrees"
+  note: "UHD angular separation for precise target detection"
+
+range_accuracy: "±0.2m"
+
+# Operation modes
+frame_rate_options:
+  mode_1: "Extended range mode up to 180m"
+  mode_2: "Fine resolution mode for detailed detection"
+
+# Data output specifications
+data_output_formats:
+  - "Point cloud data"
+  - "Tracked objects"
+  - "Raw radar data"
+  - "Target classification"
+
+# Radar-specific technical details
+laser_specification:
+  frequency_band: "76-81 GHz"
+  modulation: "FMCW"
+  antenna_type: "Phased array"
+  beam_steering: "Electronic"
+  angular_separation: "2° UHD"
+
+sensor_image: "https://www.smartmicro.com/images/products/drvegrd-152.jpg"
+
+notes: |
+  smartmicro DRVEGRD 152 is a 4D/UHD Front Radar offering ultra-high definition sensing for automotive applications.
+  
+  KEY SPECIFICATIONS:
+  - 4D/UHD radar technology with ultra-high definition
+  - 100° field of view in azimuth direction
+  - 2° UHD angular separation for precise target detection
+  - Range coverage extending up to 180 meters
+  - Two operation modes for different scenarios
+  
+  OPERATION MODES:
+  1. Extended Range Mode: Optimized for long-distance detection up to 180m
+  2. Fine Resolution Mode: Enhanced detail for close and medium-range objects
+  
+  TECHNICAL CAPABILITIES:
+  - Software-defined architecture compatible with DRVEGRD family
+  - Real-time performance optimization
+  - Advanced interference detection and suppression
+  - Multi-sensor synchronization and timestamping
+  - Balance between range extension and fine resolution
+  - Unambiguous Doppler measurement capabilities
+  
+  SAFETY AND COMPLIANCE:
+  - ASIL-B/C compliant for automotive safety applications
+  - ISO 26262 functional safety standards
+  - Robust performance in adverse weather conditions
+  - Designed for safety-critical automotive systems
+  
+  APPLICATIONS:
+  - Front-facing ADAS systems
+  - Highway driving assistance
+  - Urban traffic navigation
+  - Autonomous vehicle sensing
+  - Advanced emergency braking
+  - Adaptive cruise control
+  
+  The DRVEGRD 152 provides an optimal balance between performance and cost, 
+  making it suitable for various automotive applications requiring reliable 
+  front-facing radar sensing with ultra-high definition capabilities.
+

@@ -1,0 +1,170 @@
+# VectorNav VN-100 IMU/AHRS Sensor Data
+# Extracted from official VectorNav datasheet specifications
+
+schema_version: "1.0"
+
+sensor_id: "vectornav_vn100"
+sensor_type: "IMU"
+manufacturer: "VectorNav"
+model: "VN-100 IMU/AHRS"
+
+# Core performance specifications from datasheet
+sampling_rate: 800.0
+sampling_rate_unit: "Hz"
+
+# Equivalent to frame rate for IMU data output
+frame_rate: 800.0
+frame_rate_unit: "FPS"
+
+# Response time calculated from Kalman filter update rate (1/400Hz = 2.5ms)
+latency: 2.5
+latency_unit: "ms"
+
+# Physical specifications (Rugged version - primary variant)
+size:
+  length: 36.0
+  width: 33.0
+  height: 9.0
+  unit: "mm"
+
+weight: 15.0
+weight_unit: "g"
+
+# Power specifications
+power_consumption: 0.22  # 220 mW
+power_consumption_unit: "W"
+
+# Electrical specifications
+input_voltage: "3.5 to 5.5 V"
+current_draw: "40 mA @ 5 V"
+
+# Environmental specifications
+environmental_rating: "None"
+operating_temperature: "-40°C to +85°C"
+storage_temperature: "-40°C to +85°C"
+mtbf: "> 240,000 hours"
+
+# Communication interfaces
+communication_interface: "TTL UART"
+interfaces:
+  - "RS-232 Serial TTL"
+  - "SPI"
+
+# Data output specifications
+output_data_rate: "up to 800 Hz"
+data_output_formats:
+  - "ASCII (VectorNav)"
+  - "Binary (VectorNav)"
+
+# ROS compatibility
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+
+# Documentation and resources
+datasheet_link: "https://www.vectornav.com/resources/datasheets"
+product_page: "https://www.vectornav.com/products/detail/vn-100"
+github_repo: "https://github.com/vectornav/vnproglib"
+
+# Key features extracted from datasheet
+key_features:
+  - "2.0° Magnetic Heading Accuracy"
+  - "5°/hr Gyro In-Run Bias Stability"
+  - "400 Hz Onboard Extended Kalman Filter Update Rate"
+  - "Miniature and lightweight design (36×33×9mm, 15g)"
+  - "VectorNav proprietary AHRS with 360° attitude solution"
+  - "Real-time gyro bias tracking and compensation"
+  - "Hard/Soft Iron Compensation (Real-time and Manual 2D & 3D)"
+  - "Individually calibrated for bias, scale factor, misalignment, and temperature"
+  - "Coning and sculling integrals (ΔV's, Δθ's)"
+  - "World Magnetic & Gravity Reference Models"
+  - "ITAR-Free"
+
+use_cases:
+  - "Aircraft navigation"
+  - "Balancing robots"
+  - "Indoor inertial navigation"
+  - "Autonomous vehicles"
+  - "Robotics navigation"
+  - "Platform stabilization"
+  - "Human-computer interaction (HCI)"
+  - "Altimeter applications"
+
+tags:
+  - "indoor"
+  - "outdoor"
+  - "navigation"
+  - "attitude"
+  - "heading"
+  - "miniature"
+  - "high-performance"
+  - "imu"
+  - "ahrs"
+  - "kalman-filter"
+  - "6dof"
+  - "9dof"
+
+# Estimated pricing (contact manufacturer for actual pricing)
+price_range:
+  min_price: 1500.0
+  max_price: 2500.0
+  currency: "USD"
+
+supported_platforms:
+  - "Linux"
+  - "Windows"
+
+sensor_image: "https://www.vectornav.com/images/products/vn-100-rugged.jpg"
+
+notes: |
+  VectorNav VN-100 IMU/AHRS - Miniature, lightweight and high-performance IMU & AHRS combining 3-axis accelerometers, gyros, and magnetometers, a barometric pressure sensor and a 32-bit processor.
+  
+  DETAILED SPECIFICATIONS FROM DATASHEET:
+  
+  ATTITUDE & HEAVE PERFORMANCE:
+  - Range (Heading/Yaw/Roll): ±180°
+  - Range (Pitch): ±90°
+  - Heading (Magnetic): 2.0° RMS
+  - Pitch/Roll (Static): 0.5° RMS
+  - Pitch/Roll (Dynamic): 1.0° RMS
+  - Heave Accuracy: 5% or 5 cm
+  - Delayed Heave Accuracy: 2% or 2 cm
+  - Angular Resolution: 0.01°
+  
+  IMU SPECIFICATIONS:
+  ACCELEROMETER:
+  - Range: ±16 g
+  - In-Run Bias Stability: < 0.04 mg
+  - Noise Density: 0.14 mg/√Hz
+  - Bandwidth: 230 Hz
+  
+  GYROSCOPE:
+  - Range: ±2,000°/s
+  - In-Run Bias Stability: < 10°/hr (5°/hr typical)
+  - Angular Random Walk: < 0.35°/√hr
+  - Noise Density: 0.0035°/s/√Hz
+  - Bandwidth: 265 Hz
+  
+  MAGNETOMETER:
+  - Range: ±2.5 Gauss
+  - Noise Density: 140 μGauss/√Hz
+  - Bandwidth: 200 Hz
+  
+  BAROMETER:
+  - Range: 10 to 1200 mbar
+  - Resolution: 0.012 mbar
+  - Accuracy: ±1.5 mbar
+  
+  MECHANICAL VARIANTS:
+  - Rugged: 36×33×9mm, 15g, 220mW, 10-pin Harwin
+  - SMD: 24×22×3mm, 3.5g, 185mW, 30-pin LGA
+  
+  INTERFACING:
+  - Output Data Rate (IMU): up to 800 Hz
+  - Output Data Rate (Attitude): up to 400 Hz
+  - Coning and sculling integrals: ΔV's, Δθ's
+  - Data output format: ASCII (VectorNav), Binary (VectorNav)
+  - World Magnetic & Gravity Reference Models
+  - VectorNav Control Center GUI available
+  
+  The VN-100 provides real-time 3D attitude solutions continuous over the complete 360 degrees of operation with VectorNav Processing Engine (VPE) for disturbance rejection, adaptive filtering, and dynamic filter tuning.

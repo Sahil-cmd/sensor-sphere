@@ -1,0 +1,180 @@
+# smartmicro DRVEGRD 171 4D/PXHD Front Radar
+# Extracted from smartmicro official documentation and marketing materials
+
+schema_version: "1.0"
+
+sensor_id: "smartmicro_drvegrd_171"
+sensor_type: "Radar"
+manufacturer: "smartmicro"
+model: "DRVEGRD 171"
+
+# Core performance specifications
+frame_rate: 20.0
+frame_rate_unit: "FPS"
+
+# Response time for radar processing
+latency: 40.0
+latency_unit: "ms"
+
+# Range specifications - three different modes
+min_range: 0.2
+max_range: 240.0
+
+# Field of view
+field_of_view:
+  horizontal: 100.0
+  vertical: 20.0
+  notes: "4D/PXHD radar with enhanced precision and performance"
+
+# Power specifications
+power_consumption: 12.0
+power_consumption_unit: "W"
+
+# Communication interfaces
+communication_interface: "Automotive Ethernet (100/1000Base-T1), CAN FD"
+
+# Environmental specifications
+environmental_rating: "IP67"
+operating_temperature: "-40°C to +85°C"
+storage_temperature: "-40°C to +100°C"
+
+# ROS compatibility
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+
+# Documentation and resources
+datasheet_link: "https://www.smartmicro.com/automotive-radar-sensors"
+product_page: "https://www.smartmicro.com/products/drvegrd-171"
+github_repo: "https://github.com/smartmicro/automotive-radar-drivers"
+
+# Key features extracted from documentation
+key_features:
+  - "4D/PXHD radar with enhanced precision and performance"
+  - "Three different range modes for versatile applications"
+  - "Shortest covering very close distances (0.2m to 40m)"
+  - "Longest covering extensive range up to 240m"
+  - "Multiple operation modes with real-time switching"
+  - "Advanced target separation capabilities"
+  - "Multi-sensor synchronization and timestamping"
+  - "Software-defined radar architecture"
+  - "ASIL-B/C compliant for automotive safety"
+  - "Interference detection and suppression"
+  - "Frequency agility and multi-band operation"
+  - "Unambiguous Doppler measurement"
+
+use_cases:
+  - "Forward Collision Warning (FCW)"
+  - "Collision Avoidance (CA)"
+  - "Automatic Emergency Braking (AEB)"
+  - "Adaptive Cruise Control (ACC)"
+  - "Front Cross Traffic Alert (FCTA)"
+  - "Autonomous vehicle front sensing"
+  - "Advanced Driver Assistance Systems (ADAS)"
+  - "Industrial vehicle safety systems"
+  - "Mining and construction vehicle safety"
+  - "Traffic monitoring applications"
+
+tags:
+  - "automotive"
+  - "4d-radar"
+  - "front-radar"
+  - "adas"
+  - "autonomous-vehicles"
+  - "precision-radar"
+  - "multi-mode"
+  - "safety-critical"
+  - "real-time"
+  - "pxhd"
+
+# Estimated pricing (contact manufacturer for actual pricing)
+price_range:
+  min_price: 2500.0
+  max_price: 6000.0
+  currency: "USD"
+  note: "Pricing varies based on volume and configuration"
+
+supported_platforms:
+  - "Linux"
+  - "QNX"
+  - "AUTOSAR"
+
+# Technical specifications from documentation
+channels: 128
+returns: "Multiple targets per beam"
+scanning_method: "Electronic beam steering"
+operational_principle: "FMCW (Frequency Modulated Continuous Wave)"
+measurement_principle: "4D radar with PXHD precision"
+
+# Advanced radar specifications
+angular_resolution:
+  horizontal: "1.2°"
+  vertical: "2.5°"
+  unit: "degrees"
+  note: "Enhanced precision for front-facing applications"
+
+range_accuracy: "±0.15m"
+
+# Range modes specification
+frame_rate_options:
+  shortest_mode: "0.2m to 40m"
+  medium_mode: "2m to 120m"
+  longest_mode: "5m to 240m"
+
+# Data output specifications
+data_output_formats:
+  - "Point cloud data"
+  - "Tracked objects"
+  - "Raw radar measurements"
+  - "Target classification data"
+
+# Radar-specific technical details
+laser_specification:
+  frequency_band: "76-81 GHz"
+  modulation: "FMCW"
+  antenna_type: "Phased array"
+  beam_steering: "Electronic"
+  range_modes: "Three selectable modes"
+
+sensor_image: "https://www.smartmicro.com/images/products/drvegrd-171.jpg"
+
+notes: |
+  smartmicro DRVEGRD 171 is a 4D/PXHD radar designed for front-facing automotive applications with enhanced precision and performance.
+  
+  KEY SPECIFICATIONS:
+  - 4D/PXHD radar technology for superior precision
+  - Three different range modes for versatile operation
+  - Range coverage from 0.2m (shortest) to 240m (longest)
+  - Enhanced target separation and classification
+  - Real-time mode switching capabilities
+  
+  RANGE MODES:
+  1. Shortest Mode: 0.2m to 40m (close-range detection)
+  2. Medium Mode: 2m to 120m (standard operation)  
+  3. Longest Mode: 5m to 240m (long-range detection)
+  
+  TECHNICAL CAPABILITIES:
+  - Software-defined architecture with DRVEGRD compatibility
+  - Multi-mode operation with real-time optimization
+  - Advanced interference detection and suppression
+  - Multi-sensor synchronization and timestamping
+  - Unambiguous Doppler measurement capabilities
+  - Frequency agility for optimal performance
+  
+  SAFETY AND COMPLIANCE:
+  - ASIL-B/C compliant for automotive safety
+  - ISO 26262 functional safety standards
+  - Robust performance in various weather conditions
+  - Designed for safety-critical applications
+  
+  APPLICATIONS:
+  - Front-facing ADAS applications
+  - Autonomous vehicle navigation
+  - Industrial vehicle safety
+  - Advanced emergency braking systems
+  - Adaptive cruise control systems
+  
+  The DRVEGRD 171 offers a balance between performance and cost-effectiveness, 
+  making it suitable for various automotive applications requiring precise 
+  front-facing radar sensing capabilities.
+

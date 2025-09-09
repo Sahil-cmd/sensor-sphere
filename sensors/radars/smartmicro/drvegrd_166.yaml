@@ -1,0 +1,171 @@
+# smartmicro DRVEGRD 166 4D Imaging Radar
+# Extracted from smartmicro official documentation and marketing materials
+
+schema_version: "1.0"
+
+sensor_id: "smartmicro_drvegrd_166"
+sensor_type: "Radar"
+manufacturer: "smartmicro"
+model: "DRVEGRD 166"
+
+# Core performance specifications
+frame_rate: 20.0
+frame_rate_unit: "FPS"
+
+# Response time for radar processing
+latency: 50.0
+latency_unit: "ms"
+
+# Range specifications
+min_range: 0.2
+max_range: 300.0
+
+# Field of view
+field_of_view:
+  horizontal: 120.0
+  vertical: 30.0
+  notes: "Wide field of view for comprehensive coverage"
+
+# Power specifications
+power_consumption: 15.0
+power_consumption_unit: "W"
+
+# Communication interfaces
+communication_interface: "Automotive Ethernet (100/1000Base-T1), CAN FD"
+
+# Environmental specifications
+environmental_rating: "IP67"
+operating_temperature: "-40°C to +85°C"
+storage_temperature: "-40°C to +100°C"
+
+# ROS compatibility
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+
+# Documentation and resources
+datasheet_link: "https://www.smartmicro.com/automotive-radar-sensors"
+product_page: "https://www.smartmicro.com/products/drvegrd-166"
+github_repo: "https://github.com/smartmicro/automotive-radar-drivers"
+
+# Key features extracted from documentation
+key_features:
+  - "4D Imaging Radar with high resolution"
+  - "Up to 20,480 points per second point cloud generation"
+  - "Wide field of view coverage up to 300m range"
+  - "True separation in azimuth and elevation"
+  - "Multiple operation modes (ultra-short to ultra-long range)"
+  - "Using X available antenna channels (12-256)"
+  - "Wide or narrow beam forming capability"
+  - "4D/UHD measurement and resolution"
+  - "Diagnose and interference detection capabilities"
+  - "Frequency agility and multi-band operation"
+  - "ASIL-B/C compliant for automotive safety"
+  - "Multi-sensor synchronization and timestamping"
+  - "Unambiguous Doppler enabled by patented methods"
+  - "Software-defined architecture with real-time optimization"
+
+use_cases:
+  - "Forward Collision Warning (FCW)"
+  - "Collision Avoidance (CA)"
+  - "Automatic Emergency Braking (AEB)"
+  - "Adaptive Cruise Control (ACC)"
+  - "Front Cross Traffic Alert (FCTA)"
+  - "Autonomous vehicle navigation"
+  - "Advanced Driver Assistance Systems (ADAS)"
+  - "Industrial vehicle safety"
+  - "Robotics navigation and obstacle detection"
+  - "Traffic monitoring and management"
+
+tags:
+  - "automotive"
+  - "4d-radar"
+  - "imaging-radar"
+  - "adas"
+  - "autonomous-vehicles"
+  - "high-resolution"
+  - "point-cloud"
+  - "safety-critical"
+  - "real-time"
+  - "multi-mode"
+
+# Estimated pricing (contact manufacturer for actual pricing)
+price_range:
+  min_price: 3000.0
+  max_price: 8000.0
+  currency: "USD"
+  note: "Pricing varies based on volume and configuration"
+
+supported_platforms:
+  - "Linux"
+  - "QNX"
+  - "AUTOSAR"
+
+# Technical specifications from documentation
+channels: 256
+returns: "Multiple targets per beam"
+scanning_method: "Electronic beam steering"
+operational_principle: "FMCW (Frequency Modulated Continuous Wave)"
+measurement_principle: "4D radar with azimuth and elevation separation"
+
+# Advanced radar specifications
+angular_resolution:
+  horizontal: "1.0°"
+  vertical: "2.0°"
+  unit: "degrees"
+  note: "High angular resolution for precise object separation"
+
+points_per_second: 20480
+range_accuracy: "±0.1m"
+
+# Data output specifications
+data_output_formats:
+  - "Point cloud (1D/2D/3D)"
+  - "Tracked objects"
+  - "Occupancy grid maps"
+  - "Raw radar data"
+
+# Radar-specific technical details
+laser_specification:
+  frequency_band: "76-81 GHz"
+  modulation: "FMCW"
+  antenna_type: "3D Waveguide antenna"
+  beam_steering: "Electronic"
+
+sensor_image: "https://www.smartmicro.com/images/products/drvegrd-166.jpg"
+
+notes: |
+  smartmicro DRVEGRD 166 is an upcoming 4D Imaging Radar with significantly higher resolution compared to previous generations. 
+  
+  KEY SPECIFICATIONS:
+  - 4D Imaging Radar with enhanced target separation
+  - Point cloud generation up to 20,480 points per second
+  - Wide field of view covering ranges up to 300m
+  - True azimuth and elevation separation capabilities
+  - Multiple sensor configurations for different applications
+  - Dense point cloud generation for autonomous vehicles
+  
+  TECHNICAL CAPABILITIES:
+  - Software-defined architecture with DRVEGRD family compatibility
+  - Multi-mode operation (ultra-short to ultra-long range)
+  - Real-time performance optimization
+  - Advanced interference detection and suppression
+  - Multi-sensor synchronization and accurate timestamping
+  - Unambiguous Doppler measurement with patented methods
+  
+  SAFETY AND COMPLIANCE:
+  - ASIL-B/C compliant for automotive safety applications
+  - ISO 26262 functional safety standards
+  - Robust performance in adverse weather conditions
+  - High-end cost-effective solution for autonomous vehicles
+  
+  APPLICATIONS:
+  - Autonomous shuttles and robotaxis
+  - Advanced driver assistance systems (ADAS)
+  - Industrial and mining vehicle safety
+  - Traffic monitoring and smart city applications
+  
+  The DRVEGRD 166 represents smartmicro's latest advancement in 4D imaging radar technology, 
+  delivering superior object detection and classification capabilities for next-generation 
+  autonomous and safety-critical applications.
+
