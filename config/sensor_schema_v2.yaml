@@ -1,0 +1,582 @@
+# Enhanced Multi-Modal Sensor Schema (Version 2.0)
+# Designed for cameras, LiDAR, radar, IMU, and future sensor types
+# Aligned with ROS sensor_msgs standards and industry best practices (2025)
+
+# ===== CORE COMMON FIELDS (All Sensor Types) =====
+
+schema_version:
+  type: string
+  required: true
+  regex: '^2\.\d+$'
+  # Version 2.x for multi-modal schema
+
+sensor_id:
+  type: string
+  required: true
+  regex: '^[a-zA-Z0-9_-]+$'
+
+sensor_type:
+  type: string
+  required: true
+  allowed:
+    - RGB Camera
+    - Depth Camera
+    - LiDAR
+    - Infrared Camera
+    - Stereo Camera
+    - Thermal Camera
+    - Time-of-Flight Camera
+    - Structured Light Camera
+    - Radar
+    - IMU
+    - Ultrasonic Sensor
+    - Magnetometer
+    # Extensible for future sensor types
+
+manufacturer:
+  type: string
+  required: true
+
+model:
+  type: string
+  required: true
+
+# ===== PHYSICAL SPECIFICATIONS =====
+
+physical_specs:
+  type: dict
+  required: false
+  schema:
+    size:
+      type: dict
+      required: false
+      schema:
+        length:
+          type: float
+          required: true
+        width:
+          type: float
+          required: true
+        height:
+          type: float
+          required: true
+        diameter:
+          type: float
+          required: false  # For cylindrical sensors
+        unit:
+          type: string
+          required: true
+          allowed: [mm, cm, m]
+    weight:
+      type: float
+      required: false
+    weight_unit:
+      type: string
+      required: false
+      allowed: [g, kg]
+    power_consumption:
+      type: float
+      required: false
+    power_consumption_unit:
+      type: string
+      required: false
+      allowed: [W, mW]
+    environmental_rating:
+      type: string
+      required: false
+      allowed: [IP65, IP66, IP67, IP68, IP6K7, None]
+    operating_temperature:
+      type: string
+      required: false
+    storage_temperature:
+      type: string
+      required: false
+
+# ===== SENSOR-SPECIFIC EXTENSIONS =====
+
+# Camera-specific specifications (RGB, Depth, Stereo, etc.)
+camera_specs:
+  type: dict
+  required: false
+  schema:
+    resolution:
+      type: dict
+      required: false
+      schema:
+        rgb:
+          type: dict
+          required: false
+          schema:
+            width:
+              type: integer
+              required: true
+            height:
+              type: integer
+              required: true
+        depth:
+          type: dict
+          required: false
+          schema:
+            width:
+              type: integer
+              required: true
+            height:
+              type: integer
+              required: true
+        ir:
+          type: dict
+          required: false
+          schema:
+            width:
+              type: integer
+              required: true
+            height:
+              type: integer
+              required: true
+    frame_rate:
+      type: float
+      required: false
+    frame_rate_unit:
+      type: string
+      required: false
+      allowed: [FPS]
+    field_of_view:
+      type: dict
+      required: false
+      schema:
+        horizontal:
+          type: float
+          required: false
+        vertical:
+          type: float
+          required: false
+        diagonal:
+          type: float
+          required: false
+    range:
+      type: dict
+      required: false
+      schema:
+        min_range:
+          type: float
+          required: false
+        max_range:
+          type: float
+          required: false
+        unit:
+          type: string
+          required: false
+          allowed: [m, cm, mm]
+    latency:
+      type: float
+      required: false
+    latency_unit:
+      type: string
+      required: false
+      allowed: [ms, us]
+    capture_time:
+      type: string
+      required: false
+
+# LiDAR-specific specifications
+lidar_specs:
+  type: dict
+  required: false
+  schema:
+    measurement_principle:
+      type: string
+      required: false
+      allowed: [ToF, Triangulation, HDDM+, FMCW, Structured Light]
+    channels:
+      type: dict
+      required: false
+      schema:
+        options:
+          type: list
+          required: false
+          schema:
+            type: integer
+        note:
+          type: string
+          required: false
+    horizontal_resolution:
+      type: dict
+      required: false
+      schema:
+        options:
+          type: list
+          required: false
+          schema:
+            type: integer
+        unit:
+          type: string
+          required: false
+          allowed: [points]
+    angular_resolution:
+      type: dict
+      required: false
+      schema:
+        horizontal:
+          oneoftype: [float, list]
+          required: false
+        vertical:
+          type: float
+          required: false
+        horizontal_unit:
+          type: string
+          required: false
+          allowed: [degrees, mrad]
+        horizontal_note:
+          type: string
+          required: false
+    angular_sampling_accuracy:
+      type: dict
+      required: false
+      schema:
+        horizontal:
+          type: string
+          required: false
+        vertical:
+          type: string
+          required: false
+    field_of_view:
+      type: dict
+      required: false
+      schema:
+        horizontal:
+          type: float
+          required: false
+        vertical:
+          type: float
+          required: false
+        vertical_range:
+          type: string
+          required: false
+    range_specs:
+      type: dict
+      required: false
+      schema:
+        min_range:
+          type: float
+          required: false
+        max_range:
+          type: float
+          required: false
+        range_accuracy:
+          type: string
+          required: false
+        range_precision:
+          type: dict
+          required: false
+        range_performance:
+          type: dict
+          required: false
+          schema:
+            high_reflectivity:
+              type: string
+              required: false
+            low_reflectivity:
+              type: string
+              required: false
+    scanning:
+      type: dict
+      required: false
+      schema:
+        frame_rate:
+          type: float
+          required: false
+        frame_rate_unit:
+          type: string
+          required: false
+          allowed: [Hz]
+        frame_rate_options:
+          type: list
+          required: false
+          schema:
+            type: float
+        sample_frequency:
+          oneoftype: [integer, dict]
+          required: false
+        sample_frequency_unit:
+          type: string
+          required: false
+          allowed: [Hz, kHz]
+    returns:
+      type: string
+      required: false
+      # "1 (strongest)", "2 (strongest, second)", "3 (multi-echo)"
+    data_output:
+      type: dict
+      required: false
+      schema:
+        data_latency:
+          type: string
+          required: false
+        timestamp_resolution:
+          type: string
+          required: false
+        points_per_second:
+          type: dict
+          required: false
+        data_rate:
+          type: dict
+          required: false
+        data_per_point:
+          type: string
+          required: false
+    laser_specification:
+      type: dict
+      required: false
+      schema:
+        wavelength:
+          type: string
+          required: false
+        laser_class:
+          type: string
+          required: false
+        beam_diameter:
+          type: string
+          required: false
+        beam_divergence:
+          type: string
+          required: false
+
+# Radar-specific specifications (future expansion)
+radar_specs:
+  type: dict
+  required: false
+  schema:
+    frequency_bands:
+      type: list
+      required: false
+      schema:
+        type: string
+        allowed: [24GHz, 77GHz, 79GHz, Other]
+    antenna_pattern:
+      type: dict
+      required: false
+      schema:
+        horizontal_beamwidth:
+          type: float
+          required: false
+        vertical_beamwidth:
+          type: float
+          required: false
+    doppler_capability:
+      type: boolean
+      required: false
+    target_classification:
+      type: boolean
+      required: false
+    weather_resistance:
+      type: string
+      required: false
+
+# IMU-specific specifications (future expansion)
+imu_specs:
+  type: dict
+  required: false
+  schema:
+    accelerometer:
+      type: dict
+      required: false
+      schema:
+        range:
+          type: string
+          required: false
+        resolution:
+          type: string
+          required: false
+        noise_density:
+          type: string
+          required: false
+    gyroscope:
+      type: dict
+      required: false
+      schema:
+        range:
+          type: string
+          required: false
+        resolution:
+          type: string
+          required: false
+        bias_stability:
+          type: string
+          required: false
+    magnetometer:
+      type: dict
+      required: false
+      schema:
+        range:
+          type: string
+          required: false
+        resolution:
+          type: string
+          required: false
+    sampling_rate:
+      type: float
+      required: false
+    sampling_rate_unit:
+      type: string
+      required: false
+      allowed: [Hz, kHz]
+
+# ===== COMMON CONNECTIVITY & INTEGRATION =====
+
+communication_interface:
+  type: string
+  required: false
+  allowed:
+    - USB 2.0
+    - USB 3.0
+    - Gigabit Ethernet
+    - Ethernet
+    - Wi-Fi
+    - CAN
+    - TTL UART
+    - M12
+    - Other
+
+ros_compatibility:
+  type: list
+  required: false
+  schema:
+    type: string
+    allowed: [ROS1, ROS2]
+
+# ===== DOCUMENTATION & RESOURCES =====
+
+documentation:
+  type: dict
+  required: false
+  schema:
+    datasheet_link:
+      type: string
+      required: false
+      regex: '^https?://[^\s]+$'
+    driver_link_ros1:
+      type: string
+      required: false
+      regex: '^https?://[^\s]+$'
+    driver_link_ros2:
+      type: string
+      required: false
+      regex: '^https?://[^\s]+$'
+    github_repo:
+      type: string
+      required: false
+      regex: '^https?://(www\.)?github\.com/[^\s]+$'
+    sensor_image:
+      type: string
+      required: false
+
+# ===== PRODUCT INFORMATION =====
+
+product_info:
+  type: dict
+  required: false
+  schema:
+    key_features:
+      type: list
+      required: false
+      schema:
+        type: string
+    use_cases:
+      type: list
+      required: false
+      schema:
+        type: string
+    tags:
+      type: list
+      required: false
+      schema:
+        type: string
+    price_range:
+      type: dict
+      required: false
+      schema:
+        min_price:
+          type: float
+          required: false
+        max_price:
+          type: float
+          required: false
+        currency:
+          type: string
+          required: false
+          allowed: [USD, EUR, SGD, GBP, INR]
+        note:
+          type: string
+          required: false
+    supported_platforms:
+      type: list
+      required: false
+      schema:
+        type: string
+        allowed: [Linux, Windows, macOS, Other]
+
+# ===== METADATA =====
+
+notes:
+  type: string
+  required: false
+
+# ===== BACKWARD COMPATIBILITY FIELDS =====
+# These maintain compatibility with v1.0 schema
+
+# Legacy fields (mapped to new structure internally)
+resolution:
+  type: dict
+  required: false
+  # Mapped to camera_specs.resolution
+
+field_of_view:
+  type: dict
+  required: false
+  # Mapped to camera_specs.field_of_view or lidar_specs.field_of_view
+
+min_range:
+  type: float
+  required: false
+  # Mapped to appropriate sensor specs
+
+max_range:
+  type: float
+  required: false
+  # Mapped to appropriate sensor specs
+
+frame_rate:
+  type: float
+  required: false
+  # Mapped to appropriate sensor specs
+
+frame_rate_unit:
+  type: string
+  required: false
+  allowed: [FPS, Hz]
+  # Now supports both units
+
+latency:
+  type: float
+  required: false
+  # Mapped to appropriate sensor specs
+
+environmental_rating:
+  type: string
+  required: false
+  # Mapped to physical_specs.environmental_rating
+
+power_consumption:
+  type: float
+  required: false
+  # Mapped to physical_specs.power_consumption
+
+size:
+  type: dict
+  required: false
+  # Mapped to physical_specs.size
+
+weight:
+  type: float
+  required: false
+  # Mapped to physical_specs.weight

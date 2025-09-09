@@ -1,0 +1,112 @@
+# Yamale-compatible sensor schema (Version 1.0)
+# This schema defines the structure for sensor data YAML files using Yamale syntax.
+
+# Required fields
+schema_version: str(regex='^[0-9]+\.[0-9]+$')
+sensor_id: str(regex='^[a-zA-Z0-9_-]+$')
+sensor_type: enum('RGB Camera', 'Depth Camera', 'LiDAR', 'Infrared Camera', 'Stereo Camera', 'Thermal Camera', 'Time-of-Flight Camera', 'Ultrasonic Sensor', 'Radar', 'Structured Light Camera', 'IMU', 'Gyroscope', 'Accelerometer', 'Magnetometer')
+manufacturer: str()
+model: str()
+
+# Optional structured fields
+resolution: include('resolution_schema', required=False)
+field_of_view: include('fov_schema', required=False)
+price_range: include('price_schema', required=False)
+size: include('size_schema', required=False)
+
+# Optional basic fields
+min_range: num(required=False)
+max_range: num(required=False)
+frame_rate: num(required=False)
+frame_rate_unit: enum('FPS', required=False)
+frame_rate_options: map(str(), required=False)
+latency: num(required=False)
+latency_unit: enum('ms', required=False)
+environmental_rating: enum('IP65', 'IP66', 'IP67', 'IP68', 'None', required=False)
+communication_interface: str(required=False)
+ros_compatibility: list(enum('ROS1', 'ROS2'), required=False)
+driver_link_ros1: str(regex='^https?://[^\s]+$', required=False)
+driver_link_ros2: str(regex='^https?://[^\s]+$', required=False)
+driver_link: str(regex='^https?://[^\s]+$', required=False)
+datasheet_link: str(regex='^https?://[^\s]+$', required=False)
+github_repo: str(regex='^https?://(www\.)?github\.com/[^\s]+$', required=False)
+key_features: list(str(), required=False)
+use_cases: list(str(), required=False)
+tags: list(str(), required=False)
+supported_platforms: list(enum('Linux', 'Windows', 'macOS', 'QNX', 'AUTOSAR', 'Other'), required=False)
+power_consumption: num(required=False)
+power_consumption_unit: enum('W', 'mW', required=False)
+weight: num(required=False)
+weight_unit: enum('g', 'kg', required=False)
+sensor_image: str(regex='^https?://[^\s]+\.(jpg|jpeg|png|gif)$', required=False)
+notes: str(required=False)
+
+# Additional optional fields for all sensors
+product_page: str(regex='^https?://[^\s]+$', required=False)
+storage_temperature: str(required=False)
+operating_temperature: str(required=False)
+data_output_formats: list(str(), required=False)
+
+# Radar-specific fields
+scanning_method: str(required=False)
+angular_resolution: include('angular_resolution_schema', required=False)
+range_accuracy: str(required=False)
+laser_specification: include('radar_specification_schema', required=False)
+returns: str(required=False)
+channels: int(min=1, required=False)
+points_per_second: int(min=1, required=False)
+operational_principle: str(required=False)
+measurement_principle: str(required=False)
+
+# IMU-specific fields
+output_data_rate: str(required=False)
+interfaces: list(str(), required=False)
+input_voltage: str(required=False)
+current_draw: str(required=False)
+sampling_rate: num(required=False)
+sampling_rate_unit: enum('Hz', 'kHz', required=False)
+mtbf: str(required=False)
+
+---
+# Sub-schemas
+resolution_schema:
+  rgb: include('resolution_component', required=False)
+  depth: include('resolution_component', required=False)
+  ir: include('resolution_component', required=False)
+
+resolution_component:
+  width: int(min=1)
+  height: int(min=1)
+
+fov_schema:
+  diagonal: num(required=False)
+  horizontal: num(required=False)
+  vertical: num(required=False)
+  notes: str(required=False)
+
+price_schema:
+  min_price: num(required=False)
+  max_price: num(required=False)
+  currency: enum('SGD', 'USD', 'EUR', 'GBP', 'INR', required=False)
+  note: str(required=False)
+
+size_schema:
+  length: num()
+  width: num()
+  height: num()
+  unit: enum('mm', 'cm', 'm')
+
+angular_resolution_schema:
+  horizontal: str(required=False)
+  vertical: str(required=False)
+  unit: enum('degrees', 'radians', required=False)
+  note: str(required=False)
+
+radar_specification_schema:
+  frequency_band: str(required=False)
+  modulation: str(required=False)
+  antenna_type: str(required=False)
+  beam_steering: str(required=False)
+  angular_separation: str(required=False)
+  coverage: str(required=False)
+  range_modes: any(list(str()), str(), required=False)
