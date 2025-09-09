@@ -1,0 +1,62 @@
+# MechEye LSR S Sensor Data
+
+schema_version: "1.0"
+
+sensor_id: "mech_eye_lsr_s"
+sensor_type: "Structured Light Camera"
+manufacturer: "Mech-Mind Robotics"
+model: "Mech-Eye LSR S Industrial 3D Camera"
+resolution:
+  depth:
+    width: 1440
+    height: 1080
+field_of_view:
+  horizontal: 49.0
+  vertical: 37.0
+min_range: 0.5
+max_range: 1.1
+frame_rate: 1.25
+frame_rate_unit: "FPS"
+
+capture_time: "800 ms"
+environmental_rating: "IP65"
+communication_interface: "Gigabit Ethernet"
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+driver_link: "https://github.com/MechMindRobotics/mecheye_ros_interface"
+datasheet_link: "https://docs.mech-mind.net/en/eye-3d-camera/latest/hardware/specifications-lsr-s.html"
+github_repo: "https://github.com/MechMindRobotics/mecheye_ros_interface"
+product_page: "https://docs.mech-mind.net/en/eye-3d-camera/latest/hardware/specifications-lsr-s.html"
+key_features:
+  - "High-precision laser structured light technology"
+  - "Robust to ambient light interference"
+  - "High-accuracy 3D scanning"
+  - "Industrial-grade design"
+use_cases:
+  - "Bin picking"
+  - "Assembly"
+  - "Inspection"
+  - "Robot guidance"
+tags:
+  - "industrial"
+  - "high precision"
+  - "robotics"
+  - "3D scanning"
+price_range: "Contact manufacturer"
+supported_platforms:
+  - "Linux"
+  - "Windows"
+power_consumption: 30.0
+power_consumption_unit: "W"
+
+size:
+  length: 200.0
+  width: 70.0
+  height: 80.0
+  unit: "mm"
+
+weight: 1300.0
+weight_unit: "g"
+sensor_image: "https://www.mech-mind.com/images/lsr-s.png" #update
+notes: "Designed for high-precision industrial applications requiring robust 3D scanning under various lighting conditions."

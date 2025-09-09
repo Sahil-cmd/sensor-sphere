@@ -1,0 +1,64 @@
+# StereoLabs ZED Mini Sensor Data
+
+schema_version: "1.0"
+
+sensor_id: "stereolabs_zed_mini"
+sensor_type: "Stereo Camera"
+manufacturer: "StereoLabs"
+model: "ZED Mini"
+resolution:
+  rgb:
+    width: 2208
+    height: 1242
+
+field_of_view:
+  horizontal: 102.0
+  vertical: 57.0
+  diagonal: 118.0
+min_range: 0.1
+max_range: 15.0
+frame_rate: 100.0
+frame_rate_unit: "FPS"
+
+latency: null
+latency_unit: null
+environmental_rating: "None"
+communication_interface: "USB 3.0 Type-C"
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+driver_link: "https://github.com/stereolabs/zed-ros-wrapper"
+datasheet_link: "https://cdn.sanity.io/files/s18ewfw4/staging/ebcd46896092d1ee6212b7f4d81aaa1c479c2440.pdf"
+github_repo: "https://github.com/stereolabs/zed-ros-wrapper"
+product_page: "https://www.stereolabs.com/zed-mini/"
+key_features:
+  - "Compact and lightweight design"
+  - "Integrated IMU for visual-inertial SLAM"
+use_cases:
+  - "Mobile Mapping"
+  - "AR/VR Applications"
+  - "Security and Surveillance"
+tags:
+  - "indoor"
+  - "outdoor"
+  - "lightweight"
+price_range:
+  min_price: 299.0
+  max_price: 499.0
+  currency: "USD"
+supported_platforms:
+  - "Linux"
+  - "Windows"
+power_consumption: 1.9
+power_consumption_unit: "W"
+
+size:
+  length: 124.5
+  width: 30.5
+  height: 26.5
+  unit: "mm"
+
+weight: 63.0
+weight_unit: "g"
+sensor_image: "https://www.stereolabs.com/static/images/zed-mini/zed-mini-camera.png"
+notes: "Designed for lightweight and portable use cases such as AR/VR and mobile mapping."

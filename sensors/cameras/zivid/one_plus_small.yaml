@@ -1,0 +1,85 @@
+
+schema_version: "1.0"
+
+sensor_id: "zivid_one_plus_small"
+sensor_type: "Structured Light Camera"
+manufacturer: "Zivid"
+model: "One+ Small"
+
+resolution:
+  rgb:
+    width: 1920
+    height: 1200
+
+field_of_view:
+  notes: "164 mm x 132 mm at 0.3m working distance"
+
+min_range: 0.3
+max_range: 1.0
+
+frame_rate: 12.0
+frame_rate_unit: "FPS"
+
+latency: 110.0
+latency_unit: "ms"
+
+environmental_rating: "IP65"
+communication_interface: "USB 3.0"
+
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+
+# update
+
+driver_link_ros1: "https://github.com/zivid/zivid-ros/tree/ros1-master"
+driver_link_ros2: "https://github.com/zivid/zivid-ros/tree/master"
+
+datasheet_link: "https://www.zivid.com/hubfs/Zivid%20One%20Plus%20Datasheet.pdf"
+github_repo: "https://github.com/zivid/zivid-ros"
+
+# driver_link: "https://github.com/zivid/zivid-ros"
+# datasheet_link: "https://www.zivid.com/hubfs/Zivid+One+Plus+Datasheet.pdf"
+# github_repo: "https://github.com/zivid/zivid-ros"
+
+
+key_features:
+  - "High accuracy point cloud output"
+  - "Industrial-grade design"
+  - "Full HD 3D imaging"
+
+use_cases:
+  - "Collaborative Robot Applications"
+  - "3D Scanning"
+  - "Quality Control"
+
+tags:
+  - "industrial"
+  - "high precision"
+  - "robotics"
+
+price_range:
+  min_price: 8999.0
+  max_price: 10999.0
+  currency: "USD"
+
+supported_platforms:
+  - "Linux"
+  - "Windows"
+
+# update
+power_consumption: null
+power_consumption_unit: null
+
+size:
+  length: 226.0  # mm
+  width: 86.0    # mm
+  height: 165.0  # mm
+  unit: "mm"
+
+weight: 2000.0
+weight_unit: "g"
+
+sensor_image: "https://www.zivid.com/hubfs/images/product/zivid-one-plus-s.jpg"
+
+notes: "Designed for industrial applications, providing precise 3D color vision in a compact form."

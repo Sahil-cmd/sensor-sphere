@@ -1,0 +1,60 @@
+# MechEye Nano Ultra Sensor Data
+
+schema_version: "1.0"
+
+sensor_id: "mech_eye_nano_ultra"
+sensor_type: "Structured Light Camera"
+manufacturer: "Mech-Mind Robotics"
+model: "Mech-Eye NANO Ultra Industrial 3D Camera"
+resolution:
+  depth:
+    width: 1280
+    height: 1024
+field_of_view:
+  horizontal: 25.0
+  vertical: 20.0
+min_range: 0.1
+max_range: 0.3
+frame_rate: 1.25
+frame_rate_unit: "FPS"
+
+capture_time: "800 ms"
+environmental_rating: "IP65"
+communication_interface: "Gigabit Ethernet"
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+driver_link: "https://github.com/MechMindRobotics/mecheye_ros_interface"
+datasheet_link: "https://docs.mech-mind.net/en/eye-3d-camera/latest/hardware/specifications-nano-ultra.html"
+github_repo: "https://github.com/MechMindRobotics/mecheye_ros_interface"
+product_page: "https://docs.mech-mind.net/en/eye-3d-camera/latest/hardware/specifications-nano-ultra.html"
+key_features:
+  - "Ultra-close range precision"
+  - "Compact design"
+  - "Industrial-grade durability"
+use_cases:
+  - "Micro-assembly"
+  - "Electronics inspection"
+  - "Robotics in confined spaces"
+tags:
+  - "industrial"
+  - "ultra close range"
+  - "robotics"
+  - "precision"
+price_range: "Contact manufacturer"
+supported_platforms:
+  - "Linux"
+  - "Windows"
+power_consumption: 20.0
+power_consumption_unit: "W"
+
+size:
+  length: 150.0
+  width: 60.0
+  height: 60.0
+  unit: "mm"
+
+weight: 800.0
+weight_unit: "g"
+sensor_image: "https://www.mech-mind.com/images/nano-ultra.png"
+notes: "Perfect for applications that require extremely close-range precision scanning."

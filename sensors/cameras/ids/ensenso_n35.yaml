@@ -1,0 +1,78 @@
+schema_version: "1.0"
+
+sensor_id: "ids_ensenso_n35"
+sensor_type: "Structured Light Camera"
+manufacturer: "IDS Imaging"
+model: "Ensenso N35"
+
+resolution:
+  depth:
+    width: 1280
+    height: 1024
+
+field_of_view:
+  # The FOV is variable based on the lens; we'll note this
+  notes: "Variable based on lens"
+
+min_range: 0.25  # meters
+max_range: 3.0   # meters
+
+frame_rate: 10.0
+frame_rate_unit: "FPS"
+
+latency: null
+latency_unit: null
+
+environmental_rating: "IP65/67"
+communication_interface: "Gigabit Ethernet"
+
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+
+driver_link_ros1: "https://github.com/ensenso/ros_driver"
+driver_link_ros2: "https://github.com/ensenso/ros_driver/tree/ros2"
+
+datasheet_link: "https://en.ids-imaging.com/ensenso-n35.html"
+github_repo: "https://github.com/ensenso/ros_driver"
+product_page: "https://en.ids-imaging.com/ensenso-3d-camera-n-series.html"
+
+key_features:
+  - "FlexView technology for high precision"
+  - "IP65/67-rated housing"
+  - "Power over Ethernet (PoE)"
+
+use_cases:
+  - "Bin Picking"
+  - "Quality Assurance in Manufacturing"
+  - "Robotic Inspection"
+
+tags:
+  - "industrial"
+  - "harsh environment"
+  - "high precision"
+
+price_range:
+  min_price: 4000.0
+  max_price: 5000.0
+  currency: "USD"
+
+supported_platforms:
+  - "Linux"
+  - "Windows"
+
+power_consumption: null
+power_consumption_unit: null
+
+size:
+  length: 175.0  # mm
+  width: 50.0    # mm
+  height: 52.0   # mm
+  unit: "mm"
+
+weight: 650.0
+weight_unit: "g"
+
+sensor_image: "https://en.ids-imaging.com/assets/images/x/ids-ensenso-stereo-vision-n30-35-series-description-v2pexhx7n9chbsp.webp"
+
+notes: "The Ensenso N35 is designed for precision industrial applications, with IP-rated protection and PoE capabilities."

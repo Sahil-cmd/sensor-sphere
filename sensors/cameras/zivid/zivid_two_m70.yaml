@@ -1,0 +1,81 @@
+
+# Zivid Two M70 Sensor Data (Schema Version 1.0)
+
+schema_version: "1.0"
+
+sensor_id: "zivid_two_m70"
+sensor_type: "Structured Light Camera"
+manufacturer: "Zivid"
+model: "Zivid Two M70"
+
+resolution:
+  rgb:
+    width: 1920
+    height: 1200
+
+field_of_view:
+  horizontal: 70.0  # Assuming M70 refers to 70° FOV
+  vertical: null
+  diagonal: null
+
+min_range: 0.3
+max_range: 1.0
+
+frame_rate: 20.0
+frame_rate_unit: "FPS"
+
+latency: 65.0
+latency_unit: "ms"
+
+environmental_rating: "IP65"
+communication_interface: "USB 3.0"
+
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+
+driver_link_ros1: "https://github.com/zivid/zivid-ros/tree/ros1-master"
+driver_link_ros2: "https://github.com/zivid/zivid-ros/tree/master"
+
+datasheet_link: "https://www.zivid.com/hubfs/files/SPEC/Zivid%20Two%20Datasheet.pdf"
+github_repo: "https://github.com/zivid/zivid-ros"
+
+key_features:
+  - "Ultra-fast 3D capture"
+  - "Compact and lightweight"
+  - "High-resolution color imaging"
+
+use_cases:
+  - "Pick and Place"
+  - "Bin Picking"
+  - "Inspection"
+
+tags:
+  - "industrial"
+  - "high speed"
+  - "robotics"
+
+price_range:
+  min_price: 10999.0
+  max_price: 12999.0
+  currency: "USD"
+
+supported_platforms:
+  - "Linux"
+  - "Windows"
+
+power_consumption: null
+power_consumption_unit: null
+
+size:
+  length: 175.0  # mm
+  width: 80.0    # mm
+  height: 90.0   # mm
+  unit: "mm"
+
+weight: 940.0
+weight_unit: "g"
+
+sensor_image: "https://www.zivid.com/hubfs/images/product/zivid-two.jpg"
+
+notes: "The Zivid Two offers high-speed 3D capture suitable for dynamic industrial environments."

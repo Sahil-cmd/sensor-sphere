@@ -1,0 +1,88 @@
+# Intel RealSense D435i Sensor Data
+
+schema_version: "1.0"
+
+sensor_id: "intel_realsense_d435i"
+sensor_type: "Depth Camera"
+manufacturer: "Intel"
+model: "RealSense D435i"
+
+resolution:
+  rgb:
+    width: 1920
+    height: 1080
+  depth:
+    width: 1280
+    height: 720
+
+field_of_view:
+  rgb:
+    horizontal: 69.4
+    vertical: 42.5
+    diagonal: 77.0
+  depth:
+    horizontal: 85.2
+    vertical: 58.0
+    diagonal: 77.0
+
+min_range: 0.105
+max_range: 10.0
+
+frame_rate: 90.0
+frame_rate_unit: "FPS"
+
+latency: 50.0
+latency_unit: "ms"
+
+environmental_rating: "None"
+communication_interface: "USB 3.1 Type-C"
+
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+
+driver_link_ros1: "https://github.com/IntelRealSense/realsense-ros/tree/ros1-legacy"
+driver_link_ros2: "https://github.com/IntelRealSense/realsense-ros"
+
+datasheet_link: "https://docs.clearpathrobotics.com/assets/files/clearpath_robotics_017103-TDS1-639e8cbc0603831af65df3b0bce26a3a.pdf"
+github_repo: "https://github.com/IntelRealSense/realsense-ros"
+product_page: "https://www.intelrealsense.com/download/21345/?tmstv=1697035582"
+
+key_features:
+  - "Integrated IMU for 6-DoF data"
+  - "Global Shutter Stereo Depth Sensing"
+  - "Infrared Projector System"
+
+use_cases:
+  - "SLAM (Simultaneous Localization and Mapping)"
+  - "Object Detection"
+  - "3D Scanning"
+
+tags:
+  - "indoor"
+  - "outdoor"
+  - "mobile robotics"
+
+price_range:
+  min_price: 249.0
+  max_price: 249.0
+  currency: "USD"
+
+supported_platforms:
+  - "Linux"
+  - "Windows"
+
+power_consumption: 1.5
+power_consumption_unit: "W"
+
+size:
+  length: 90.0  # mm
+  width: 25.0   # mm
+  height: 25.0  # mm
+  unit: "mm"
+
+weight: 72.0
+weight_unit: "g"
+
+sensor_image: "https://www.intelrealsense.com/wp-content/uploads/2018/10/Intel-RealSense-D435i-Front-Image.jpg" #update
+notes: "Popular choice for robotics applications requiring depth sensing and integrated IMU."

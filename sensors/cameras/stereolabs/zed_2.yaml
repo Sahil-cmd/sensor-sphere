@@ -1,0 +1,87 @@
+
+# StereoLabs ZED 2 Sensor Data
+
+schema_version: "1.0"
+
+sensor_id: "stereolabs_zed_2"
+sensor_type: "Stereo Camera"
+manufacturer: "StereoLabs"
+model: "ZED 2"
+
+resolution:
+  rgb:
+    width: 4416
+    height: 1242
+
+field_of_view:
+  horizontal: 110.0
+  vertical: 70.0
+  diagonal: 120.0
+
+min_range: 0.3
+max_range: 20.0
+
+frame_rate: 100.0
+frame_rate_unit: "FPS"
+
+latency: null
+latency_unit: null
+
+environmental_rating: "IP66"
+communication_interface: "USB 3.0"
+
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+
+# update
+driver_link_ros1: "https://github.com/stereolabs/zed-ros-wrapper/tree/master"
+driver_link_ros2: "https://github.com/stereolabs/zed-ros2-wrapper"
+
+# update
+driver_link: "https://github.com/stereolabs/zed-ros-wrapper"
+datasheet_link: "https://cdn.sanity.io/files/s18ewfw4/staging/ae6d5778bf3ce6ccd3a36a5eaf7d13a15bac926f.pdf"
+github_repo: "https://github.com/stereolabs/zed-ros-wrapper"
+product_page: "https://www.stereolabs.com/zed-2/"
+# datasheet_link: "https://www.stereolabs.com/assets/datasheets/ZED_2_Datasheet.pdf"
+# github_repo: "https://github.com/stereolabs/zed-ros-wrapper"
+
+key_features:
+  - "Neural Depth Sensing"
+  - "Robust all-aluminum enclosure"
+  - "Built-in IMU, Magnetometer, Barometer"
+
+use_cases:
+  - "Autonomous Navigation"
+  - "3D Mapping"
+  - "Augmented Reality"
+
+tags:
+  - "indoor"
+  - "outdoor"
+  - "AI-powered"
+
+price_range:
+  min_price: 799.0
+  max_price: 799.0
+  currency: "USD"
+
+supported_platforms:
+  - "Linux"
+  - "Windows"
+
+power_consumption: 1.9
+power_consumption_unit: "W"
+
+size:
+  length: 174.9  # mm
+  width: 29.8    # mm
+  height: 31.9   # mm
+  unit: "mm"
+
+weight: 164.0
+weight_unit: "g"
+
+sensor_image: "https://www.stereolabs.com/static/images/zed-2/zed-2-camera.png"
+
+notes: "The ZED 2 utilizes advanced AI for neural depth sensing and is suitable for both indoor and outdoor applications."

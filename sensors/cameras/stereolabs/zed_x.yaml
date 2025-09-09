@@ -1,0 +1,64 @@
+# StereoLabs ZED X Sensor Data
+
+schema_version: "1.0"
+
+sensor_id: "stereolabs_zed_x"
+sensor_type: "Stereo Camera"
+manufacturer: "StereoLabs"
+model: "ZED X"
+resolution:
+  rgb:
+    width: 1920
+    height: 1200
+
+field_of_view:
+  horizontal: 110.0
+  vertical: 80.0
+  diagonal: 120.0
+min_range: 0.3
+max_range: 20.0
+frame_rate: 120.0
+frame_rate_unit: "FPS"
+
+latency: null
+latency_unit: null
+environmental_rating: "IP67"
+communication_interface: "GMSL2 (FAKRA Z type)"
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+driver_link: "https://github.com/stereolabs/zed-ros-wrapper"
+datasheet_link: "https://cdn.sanity.io/files/s18ewfw4/staging/ec78a504b36ab95d6620ac720ffa5feaa2e8948b.pdf"
+github_repo: "https://github.com/stereolabs/zed-ros-wrapper"
+product_page: "https://www.stereolabs.com/zed-x/"
+key_features:
+  - "Rugged design with IP67 rating"
+  - "High-performance IMU"
+  - "Long-range depth perception"
+use_cases:
+  - "Agricultural Robotics"
+  - "Industrial Automation"
+  - "Obstacle Detection"
+tags:
+  - "industrial"
+  - "outdoor"
+  - "rugged"
+price_range:
+  min_price: 899.0
+  max_price: 1199.0
+  currency: "USD"
+supported_platforms:
+  - "NVIDIA Jetson Platform"
+power_consumption: null
+power_consumption_unit: null
+
+size:
+  length: 163.4
+  width: 31.8
+  height: 36.7
+  unit: "mm"
+
+weight: 239.0
+weight_unit: "g"
+sensor_image: "https://www.stereolabs.com/static/images/zed-x/zed-x-camera.png"
+notes: "Built for harsh environments, the ZED X camera supports multi-camera synchronization and high-speed GMSL2 connectivity."
