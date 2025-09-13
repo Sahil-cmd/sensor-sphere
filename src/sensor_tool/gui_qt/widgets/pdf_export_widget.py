@@ -141,146 +141,157 @@ class PDFGenerationThread(QThread):
 
     def generate_pdf_report(self):
         """Generate comprehensive PDF report with charts and analysis."""
-        # Optimized margins for better space utilization while maintaining standardism
-        doc = SimpleDocTemplate(
-            self.output_path,
-            pagesize=A4,
-            topMargin=0.6 * inch,  # Reduced from 0.75" - saves 0.15" height
-            bottomMargin=0.6 * inch,  # Reduced from 0.75" - saves 0.15" height
-            leftMargin=0.6 * inch,  # Reduced from 0.75" - saves 0.15" width
-            rightMargin=0.6
-            * inch,  # Reduced from 0.75" - saves 0.15" width (total: 0.3" more width, 0.3" more height)
-        )
+        try:
+            logger.info(f"Starting PDF generation to: {self.output_path}")
+            
+            # Optimized margins for better space utilization while maintaining standardism
+            doc = SimpleDocTemplate(
+                self.output_path,
+                pagesize=A4,
+                topMargin=0.6 * inch,  # Reduced from 0.75" - saves 0.15" height
+                bottomMargin=0.6 * inch,  # Reduced from 0.75" - saves 0.15" height
+                leftMargin=0.6 * inch,  # Reduced from 0.75" - saves 0.15" width
+                rightMargin=0.6
+                * inch,  # Reduced from 0.75" - saves 0.15" width (total: 0.3" more width, 0.3" more height)
+            )
 
-        styles = getSampleStyleSheet()
+            styles = getSampleStyleSheet()
+            logger.debug("Successfully initialized PDF document and styles")
 
-        # Custom styles
-        title_style = ParagraphStyle(
-            "CustomTitle",
-            parent=styles["Heading1"],
-            fontSize=24,
-            spaceAfter=30,
-            alignment=TA_CENTER,
-            textColor=colors.darkblue,
-        )
+            # Custom styles
+            title_style = ParagraphStyle(
+                "CustomTitle",
+                parent=styles["Heading1"],
+                fontSize=24,
+                spaceAfter=30,
+                alignment=TA_CENTER,
+                textColor=colors.darkblue,
+            )
 
-        subtitle_style = ParagraphStyle(
-            "CustomSubtitle",
-            parent=styles["Heading2"],
-            fontSize=18,
-            spaceAfter=20,
-            alignment=TA_CENTER,
-            textColor=colors.darkblue,
-            fontName="Helvetica-Bold",
-        )
+            subtitle_style = ParagraphStyle(
+                "CustomSubtitle",
+                parent=styles["Heading2"],
+                fontSize=18,
+                spaceAfter=20,
+                alignment=TA_CENTER,
+                textColor=colors.darkblue,
+                fontName="Helvetica-Bold",
+            )
 
-        metadata_style = ParagraphStyle(
-            "CustomMetadata",
-            parent=styles["Normal"],
-            fontSize=11,
-            spaceAfter=4,
-            alignment=TA_CENTER,
-            textColor=colors.grey,
-            fontName="Helvetica-Oblique",
-        )
+            metadata_style = ParagraphStyle(
+                "CustomMetadata",
+                parent=styles["Normal"],
+                fontSize=11,
+                spaceAfter=4,
+                alignment=TA_CENTER,
+                textColor=colors.grey,
+                fontName="Helvetica-Oblique",
+            )
 
-        heading_style = ParagraphStyle(
-            "CustomHeading",
-            parent=styles["Heading2"],
-            fontSize=16,
-            spaceAfter=12,
-            spaceBefore=20,
-            textColor=colors.darkblue,
-            fontName="Helvetica-Bold",
-        )
+            heading_style = ParagraphStyle(
+                "CustomHeading",
+                parent=styles["Heading2"],
+                fontSize=16,
+                spaceAfter=12,
+                spaceBefore=20,
+                textColor=colors.darkblue,
+                fontName="Helvetica-Bold",
+            )
 
-        subheading_style = ParagraphStyle(
-            "CustomSubheading",
-            parent=styles["Heading3"],
-            fontSize=14,
-            spaceAfter=8,
-            spaceBefore=12,
-            textColor=colors.darkblue,
-            fontName="Helvetica-Bold",
-        )
+            subheading_style = ParagraphStyle(
+                "CustomSubheading",
+                parent=styles["Heading3"],
+                fontSize=14,
+                spaceAfter=8,
+                spaceBefore=12,
+                textColor=colors.darkblue,
+                fontName="Helvetica-Bold",
+            )
 
-        body_style = ParagraphStyle(
-            "CustomBody", parent=styles["Normal"], fontSize=11, spaceAfter=6, leading=14
-        )
+            body_style = ParagraphStyle(
+                "CustomBody", parent=styles["Normal"], fontSize=11, spaceAfter=6, leading=14
+            )
 
-        bold_body_style = ParagraphStyle(
-            "CustomBoldBody",
-            parent=styles["Normal"],
-            fontSize=11,
-            spaceAfter=6,
-            leading=14,
-            fontName="Helvetica-Bold",
-        )
+            bold_body_style = ParagraphStyle(
+                "CustomBoldBody",
+                parent=styles["Normal"],
+                fontSize=11,
+                spaceAfter=6,
+                leading=14,
+                fontName="Helvetica-Bold",
+            )
 
-        story = []
+            story = []
 
-        # Title Page - always on its own page
-        self.progress.emit(20)
-        title_content = self._create_title_page(
-            title_style, subtitle_style, metadata_style, body_style
-        )
-        story.extend(title_content)
-        story.append(PageBreak())
-
-        # Executive Summary - keep together when possible
-        self.progress.emit(30)
-        summary_content = self._create_executive_summary(
-            heading_style, body_style, bold_body_style
-        )
-        # Use KeepTogether for executive summary to avoid awkward breaks
-        story.append(KeepTogether(summary_content))
-
-        # Strategic page break before comparison table if needed
-        story.append(Spacer(1, 0.2 * inch))  # Small buffer space
-
-        # Sensor Comparison Table - intelligent page break handling
-        self.progress.emit(40)
-        table_content = self._create_comparison_table(heading_style, body_style)
-        # Table is already wrapped in KeepTogether within the method
-        story.extend(table_content)
-
-        # Charts Section - strategic page break optimization
-        self.progress.emit(60)
-        if self.config.get("include_bar_charts", False) or self.config.get(
-            "include_radar_charts", False
-        ):
-            # Always start charts on a fresh page for better presentation
+            # Title Page - always on its own page
+            self.progress.emit(20)
+            title_content = self._create_title_page(
+                title_style, subtitle_style, metadata_style, body_style
+            )
+            story.extend(title_content)
             story.append(PageBreak())
-            charts_content = self._create_charts_section(
+
+            # Executive Summary - keep together when possible
+            self.progress.emit(30)
+            summary_content = self._create_executive_summary(
+                heading_style, body_style, bold_body_style
+            )
+            # Use KeepTogether for executive summary to avoid awkward breaks
+            story.append(KeepTogether(summary_content))
+
+            # Strategic page break before comparison table if needed
+            story.append(Spacer(1, 0.2 * inch))  # Small buffer space
+
+            # Sensor Comparison Table - intelligent page break handling
+            self.progress.emit(40)
+            table_content = self._create_comparison_table(heading_style, body_style)
+            # Table is already wrapped in KeepTogether within the method
+            story.extend(table_content)
+
+            # Charts Section - strategic page break optimization
+            self.progress.emit(60)
+            if self.config.get("include_bar_charts", False) or self.config.get(
+                "include_radar_charts", False
+            ):
+                # Always start charts on a fresh page for better presentation
+                story.append(PageBreak())
+                charts_content = self._create_charts_section(
+                    heading_style, subheading_style, body_style
+                )
+                story.extend(charts_content)
+
+            # Detailed Analysis - intelligent section breaks
+            self.progress.emit(80)
+            analysis_content = self._create_detailed_analysis(
                 heading_style, subheading_style, body_style
             )
-            story.extend(charts_content)
+            # Analysis starts on new page if charts were included, otherwise flows naturally
+            if not (
+                self.config.get("include_bar_charts", False)
+                or self.config.get("include_radar_charts", False)
+            ):
+                story.append(PageBreak())
+            story.extend(analysis_content)
 
-        # Detailed Analysis - intelligent section breaks
-        self.progress.emit(80)
-        analysis_content = self._create_detailed_analysis(
-            heading_style, subheading_style, body_style
-        )
-        # Analysis starts on new page if charts were included, otherwise flows naturally
-        if not (
-            self.config.get("include_bar_charts", False)
-            or self.config.get("include_radar_charts", False)
-        ):
-            story.append(PageBreak())
-        story.extend(analysis_content)
+            # Recommendations - keep together when possible
+            self.progress.emit(90)
+            recommendations_content = self._create_recommendations(
+                heading_style, subheading_style, body_style, bold_body_style
+            )
+            story.extend(recommendations_content)
 
-        # Recommendations - keep together when possible
-        self.progress.emit(90)
-        recommendations_content = self._create_recommendations(
-            heading_style, subheading_style, body_style, bold_body_style
-        )
-        story.extend(recommendations_content)
+            # Build PDF
+            doc.build(story)
+            self.progress.emit(100)
+            logger.info("PDF generation completed successfully")
 
-        # Build PDF
-        doc.build(story)
-        self.progress.emit(100)
-
-        return self.output_path
+            return self.output_path
+            
+        except Exception as e:
+            logger.error(f"Failed to generate PDF report: {e}")
+            logger.error(f"Error type: {type(e).__name__}")
+            logger.error(f"Detailed error: {str(e)}")
+            raise RuntimeError(f"PDF generation failed: {str(e)}")
 
     def _create_title_page(
         self, title_style, subtitle_style, metadata_style, body_style
@@ -332,8 +343,6 @@ class PDFGenerationThread(QThread):
         story.append(Spacer(1, 0.25 * inch))
 
         # Sensor list with proper bold formatting
-        from reportlab.lib.styles import ParagraphStyle
-
         sensor_list_style = ParagraphStyle(
             "SensorListHeader",
             parent=body_style,
@@ -365,7 +374,6 @@ class PDFGenerationThread(QThread):
 
             # Create styled box for user notes
             from reportlab.platypus import Table
-            from reportlab.lib.styles import ParagraphStyle
 
             notes_style = ParagraphStyle(
                 "NotesContent",
@@ -489,8 +497,6 @@ class PDFGenerationThread(QThread):
         # Create cleaner bullet-point layout instead of complex table
         if key_stats:
             # Add key statistics section with proper headers
-            from reportlab.lib.styles import ParagraphStyle
-
             stat_header_style = ParagraphStyle(
                 "StatHeader",
                 parent=bold_body_style,
@@ -2197,8 +2203,6 @@ class PDFGenerationThread(QThread):
         disclaimer_content.append(Spacer(1, 12))
 
         # Create italic style for disclaimer
-        from reportlab.lib.styles import ParagraphStyle
-
         disclaimer_style = ParagraphStyle(
             "DisclaimerStyle",
             parent=body_style,
