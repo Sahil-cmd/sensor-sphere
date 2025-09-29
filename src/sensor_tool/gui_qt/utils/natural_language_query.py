@@ -162,14 +162,79 @@ class NaturalLanguageQueryParser:
 
         # Common manufacturer aliases (case-insensitive matching)
         self.manufacturer_aliases = {
-            "Intel": ["intel", "realsense", "real sense"],
-            "Stereolabs": ["stereolabs", "zed", "stereo labs", "stereolab"],
+            "Intel": [
+                "intel",
+                "realsense",
+                "real sense",
+                "d435i",
+                "d455",
+                "t265",
+                "d435",
+                "d415",
+            ],
+            "StereoLabs": [
+                "stereolabs",
+                "zed",
+                "stereo labs",
+                "stereolab",
+                "zed2",
+                "zed-x",
+                "zed2i",
+                "zed 2",
+                "zed x",
+            ],
             "Microsoft": ["microsoft", "kinect"],
             "ASUS": ["asus", "xtion"],
             "Orbbec": ["orbbec", "astra"],
-            "Mech-Mind": ["mech-mind", "mech mind", "mechmind", "mech eye", "mech-eye"],
-            "IDS": ["ids", "ensenso", "ids imaging"],
+            "Mech-Mind Robotics": [
+                "mech-mind",
+                "mech mind",
+                "mechmind",
+                "mech eye",
+                "mech-eye",
+            ],
+            "IDS Imaging": ["ids", "ensenso", "ids imaging"],
             "Zivid": ["zivid"],
+            "Basler": ["basler", "ace", "aca", "aca1300", "aca1920"],
+            "Photoneo": ["photoneo", "phoxi", "motioncam", "motion cam", "3d scanner"],
+            "Roboception": [
+                "roboception",
+                "rc",
+                "rc_visard",
+                "rc visard",
+                "rc-visard",
+                "rcvisard",
+            ],
+            "SICK": ["sick", "lms", "lrs", "lms1000", "lrs4000", "lms1104c"],
+            "Slamtec": [
+                "slamtec",
+                "rplidar",
+                "rp lidar",
+                "rplidar a1",
+                "rplidar a2",
+                "rplidar s1",
+            ],
+            "VectorNav": ["vectornav", "vector nav", "vn", "vn100", "vn-100", "ahrs"],
+            "Velodyne": [
+                "velodyne",
+                "vlp",
+                "vlp16",
+                "vlp-16",
+                "vlp32",
+                "vlp-32",
+                "puck",
+                "ultra puck",
+            ],
+            "Ouster": ["ouster", "os", "os0", "os1", "os2"],
+            "smartmicro": ["smartmicro", "smart micro", "drvegrd"],
+            "Hesai": [
+                "hesai",
+                "pandar",
+                "pandarqt",
+                "pandarxt",
+                "pandar qt",
+                "pandar xt",
+            ],
         }
 
         # Sensor type patterns (with plurals and variations)
@@ -245,6 +310,45 @@ class NaturalLanguageQueryParser:
                 "tof sensors",
                 "time of flight camera",
                 "time of flight cameras",
+            ],
+            "IMU": [
+                "imu",
+                "imus",
+                "ahrs",
+                "inertial",
+                "inertial measurement",
+                "inertial measurement unit",
+                "gyroscope",
+                "accelerometer",
+                "magnetometer",
+                "orientation sensor",
+                "attitude sensor",
+                "motion sensor",
+                "6dof",
+                "9dof",
+                "6 dof",
+                "9 dof",
+            ],
+            "Radar": [
+                "radar",
+                "radars",
+                "automotive radar",
+                "mmwave",
+                "mm wave",
+                "77ghz",
+                "79ghz",
+                "24ghz",
+                "77 ghz",
+                "79 ghz",
+                "24 ghz",
+                "millimeter wave",
+                "range sensor",
+                "doppler radar",
+                "fmcw radar",
+                "short range radar",
+                "long range radar",
+                "srr",
+                "lrr",
             ],
         }
 
@@ -472,77 +576,98 @@ class NaturalLanguageQueryParser:
         numeric_patterns = [
             # Frame rate patterns (with unit handling)
             (
-                r"\b(fps|frame\s*rate|framerate)\s*(>|above|higher\s+than|more\s+than)\s*(\d+(?:\.\d+)?)\s*(fps|hz|hertz)?",
+                r"\b(fps|frame\s*rate|framerate)\s*"
+                r"(>|above|higher\s+than|more\s+than)\s*(\d+(?:\.\d+)?)\s*"
+                r"(fps|hz|hertz)?",
                 OperatorType.GREATER_THAN,
                 "frame_rate",
             ),
             (
-                r"\b(fps|frame\s*rate|framerate)\s*(<|below|lower\s+than|less\s+than)\s*(\d+(?:\.\d+)?)\s*(fps|hz|hertz)?",
+                r"\b(fps|frame\s*rate|framerate)\s*"
+                r"(<|below|lower\s+than|less\s+than)\s*(\d+(?:\.\d+)?)\s*"
+                r"(fps|hz|hertz)?",
                 OperatorType.LESS_THAN,
                 "frame_rate",
             ),
             (
-                r"\b(fps|frame\s*rate|framerate)\s*(=|equals|exactly)\s*(\d+(?:\.\d+)?)\s*(fps|hz|hertz)?",
+                r"\b(fps|frame\s*rate|framerate)\s*"
+                r"(=|equals|exactly)\s*(\d+(?:\.\d+)?)\s*(fps|hz|hertz)?",
                 OperatorType.EQUALS,
                 "frame_rate",
             ),
             # Latency patterns (with unit handling)
             (
-                r"\b(latency|delay)\s*(<|below|under)\s*(\d+(?:\.\d+)?)\s*(ms|millisecond|milliseconds|microsecond|microseconds|nanosecond|nanoseconds|second|seconds|sec)?",
+                r"\b(latency|delay)\s*(<|below|under)\s*(\d+(?:\.\d+)?)\s*"
+                r"(ms|millisecond|milliseconds|microsecond|microseconds|"
+                r"nanosecond|nanoseconds|second|seconds|sec)?",
                 OperatorType.LESS_THAN,
                 "latency",
             ),
             (
-                r"\b(latency|delay)\s*(>|above|over)\s*(\d+(?:\.\d+)?)\s*(ms|millisecond|milliseconds|microsecond|microseconds|nanosecond|nanoseconds|second|seconds|sec)?",
+                r"\b(latency|delay)\s*(>|above|over)\s*(\d+(?:\.\d+)?)\s*"
+                r"(ms|millisecond|milliseconds|microsecond|microseconds|"
+                r"nanosecond|nanoseconds|second|seconds|sec)?",
                 OperatorType.GREATER_THAN,
                 "latency",
             ),
             (
-                r"\b(latency|delay)\s*(=|equals|exactly)\s*(\d+(?:\.\d+)?)\s*(ms|millisecond|milliseconds|microsecond|microseconds|nanosecond|nanoseconds|second|seconds|sec)?",
+                r"\b(latency|delay)\s*(=|equals|exactly)\s*(\d+(?:\.\d+)?)\s*"
+                r"(ms|millisecond|milliseconds|microsecond|microseconds|"
+                r"nanosecond|nanoseconds|second|seconds|sec)?",
                 OperatorType.EQUALS,
                 "latency",
             ),
             # Range patterns (with unit handling)
             (
-                r"\b(range|distance|detection\s+range)\s*(>|above|over)\s*(\d+(?:\.\d+)?)\s*(meter|meters|m)?",
+                r"\b(range|distance|detection\s+range)\s*"
+                r"(>|above|over)\s*(\d+(?:\.\d+)?)\s*(meter|meters|m)?",
                 OperatorType.GREATER_THAN,
                 "max_range",
             ),
             (
-                r"\b(range|distance|detection\s+range)\s*(<|below|under)\s*(\d+(?:\.\d+)?)\s*(meter|meters|m)?",
+                r"\b(range|distance|detection\s+range)\s*"
+                r"(<|below|under)\s*(\d+(?:\.\d+)?)\s*(meter|meters|m)?",
                 OperatorType.LESS_THAN,
                 "max_range",
             ),
             # Weight patterns
             (
-                r"\b(weight|mass)\s*(>|above|more\s+than|heavier\s+than)\s*(\d+(?:\.\d+)?)\s*(gram|grams|g|kilogram|kilograms|kg)?",
+                r"\b(weight|mass)\s*"
+                r"(>|above|more\s+than|heavier\s+than)\s*(\d+(?:\.\d+)?)\s*"
+                r"(gram|grams|g|kilogram|kilograms|kg)?",
                 OperatorType.GREATER_THAN,
                 "weight",
             ),
             (
-                r"\b(weight|mass)\s*(<|below|less\s+than|lighter\s+than)\s*(\d+(?:\.\d+)?)\s*(gram|grams|g|kilogram|kilograms|kg)?",
+                r"\b(weight|mass)\s*"
+                r"(<|below|less\s+than|lighter\s+than)\s*(\d+(?:\.\d+)?)\s*"
+                r"(gram|grams|g|kilogram|kilograms|kg)?",
                 OperatorType.LESS_THAN,
                 "weight",
             ),
             # Power patterns
             (
-                r"\b(power|power\s+consumption|watts)\s*(>|above|more\s+than)\s*(\d+(?:\.\d+)?)\s*(watts|w)?",
+                r"\b(power|power\s+consumption|watts)\s*"
+                r"(>|above|more\s+than)\s*(\d+(?:\.\d+)?)\s*(watts|w)?",
                 OperatorType.GREATER_THAN,
                 "power_consumption",
             ),
             (
-                r"\b(power|power\s+consumption|watts)\s*(<|below|less\s+than)\s*(\d+(?:\.\d+)?)\s*(watts|w)?",
+                r"\b(power|power\s+consumption|watts)\s*"
+                r"(<|below|less\s+than)\s*(\d+(?:\.\d+)?)\s*(watts|w)?",
                 OperatorType.LESS_THAN,
                 "power_consumption",
             ),
             # FOV patterns
             (
-                r"\b(fov|field\s+of\s+view)\s*(>|above|wider\s+than)\s*(\d+(?:\.\d+)?)\s*(degree|degrees|°)?",
+                r"\b(fov|field\s+of\s+view)\s*"
+                r"(>|above|wider\s+than)\s*(\d+(?:\.\d+)?)\s*(degree|degrees|°)?",
                 OperatorType.GREATER_THAN,
                 "field_of_view_horizontal",
             ),
             (
-                r"\b(fov|field\s+of\s+view)\s*(<|below|narrower\s+than)\s*(\d+(?:\.\d+)?)\s*(degree|degrees|°)?",
+                r"\b(fov|field\s+of\s+view)\s*"
+                r"(<|below|narrower\s+than)\s*(\d+(?:\.\d+)?)\s*(degree|degrees|°)?",
                 OperatorType.LESS_THAN,
                 "field_of_view_horizontal",
             ),
@@ -847,7 +972,6 @@ class NaturalLanguageQueryParser:
         filters = []
         remaining = text
 
-        # Define qualitative term mappings based on robotics engineering domain knowledge
         qualitative_mappings = {
             # Precision/Accuracy terms
             "high precision": [
@@ -1312,7 +1436,8 @@ class NaturalLanguageQueryParser:
                 explanations.append(f"{field_display} contains '{filter_obj.value}'")
             elif filter_obj.operator == OperatorType.BETWEEN:
                 explanations.append(
-                    f"{field_display} between {filter_obj.value[0]} and {filter_obj.value[1]}"
+                    f"{field_display} between {filter_obj.value[0]} and "
+                    f"{filter_obj.value[1]}"
                 )
             else:
                 explanations.append(
