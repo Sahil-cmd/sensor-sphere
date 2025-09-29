@@ -6,6 +6,7 @@ This is a placeholder implementation that will be enhanced with autocomplete,
 multiple filters, and real-time filtering capabilities.
 """
 
+import logging
 from typing import Any, Dict, List
 
 from PySide6.QtCore import Qt, Signal
@@ -14,14 +15,12 @@ from PySide6.QtWidgets import (
     QCheckBox,
     QComboBox,
     QDoubleSpinBox,
-    QFrame,
     QGroupBox,
     QHBoxLayout,
     QLabel,
     QLineEdit,
     QPushButton,
     QScrollArea,
-    QSlider,
     QSpinBox,
     QVBoxLayout,
     QWidget,
@@ -361,11 +360,6 @@ class AdvancedFilterWidget(QWidget):
     def apply_current_filters(self):
         """Apply current filters."""
         self.update_current_filters()
-
-        import logging
-
-        logger = logging.getLogger(__name__)
-
         self.filter_changed.emit(self.current_filters)
 
     def clear_all_filters(self):
@@ -470,11 +464,10 @@ class AdvancedFilterWidget(QWidget):
             # Update the price filter widget with actual data range
             current_min, current_max = self.price_filter.get_range()
 
-            import logging
-
             logger = logging.getLogger(__name__)
             logger.debug(
-                f"Price filter range update requested: ${min_price:,} - ${max_price:,}, current user selection: ({current_min}, {current_max})"
+                f"Price filter range update requested: ${min_price:,} - "
+                f"${max_price:,}, current user selection: ({current_min}, {current_max})"
             )
 
             # Create new price filter with updated range
@@ -503,13 +496,15 @@ class AdvancedFilterWidget(QWidget):
                             (preserved_min, preserved_max)
                         )
                         logger.debug(
-                            f"Preserved user selection: ({preserved_min}, {preserved_max}) within bounds ({min_price}, {max_price})"
+                            f"Preserved user selection: ({preserved_min}, "
+                            f"{preserved_max}) within bounds ({min_price}, {max_price})"
                         )
                     else:
                         # This is fallback QSlider
                         self.price_filter.range_slider.setValue(preserved_max)
                         logger.debug(
-                            f"Preserved max value: {preserved_max} within bounds ({min_price}, {max_price})"
+                            f"Preserved max value: {preserved_max} within bounds "
+                            f"({min_price}, {max_price})"
                         )
                 except Exception as e:
                     logger.warning(f"Failed to preserve slider values: {e}")
@@ -533,11 +528,13 @@ class AdvancedFilterWidget(QWidget):
                 self.price_filter._update_slider_values()
                 self.price_filter.update_display()
                 logger.debug(
-                    f"Price filter initialized to full range: ${min_price:,} - ${max_price:,}"
+                    f"Price filter initialized to full range: ${min_price:,} - "
+                    f"${max_price:,}"
                 )
             else:
                 logger.debug(
-                    f"Preserving user price selection: ${current_min:,} - ${current_max:,}"
+                    f"Preserving user price selection: ${current_min:,} - "
+                    f"${current_max:,}"
                 )
 
     def update_fonts(self):
@@ -583,6 +580,7 @@ class AdvancedFilterWidget(QWidget):
 
         except Exception as e:
             # Fallback to basic font update if dynamic system fails
+            logger = logging.getLogger(__name__)
             logger.warning(f"Font update failed: {e}")
             from PySide6.QtGui import QFont
 

@@ -684,7 +684,7 @@ class SensorRepository:
                         cached_sensors = loop.run_until_complete(
                             self.load_all_sensors()
                         )
-                except RuntimeError as e:
+                except RuntimeError:
                     # No event loop, create one
                     try:
                         cached_sensors = asyncio.run(self.load_all_sensors())
