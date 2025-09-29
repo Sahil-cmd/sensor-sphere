@@ -367,7 +367,7 @@ def test_boolean_parser():
     # Test functionality if run as main module
     for query in test_queries:
         try:
-            tree = parser.parse(query)
+            parser.parse(query)
             logger.info(f"Query '{query}' parsed successfully")
         except Exception as e:
             logger.error(f"Query '{query}' failed: {e}")
