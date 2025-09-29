@@ -10,10 +10,9 @@ import logging
 from typing import Any, Dict, List, Optional
 
 from PySide6.QtCore import QEvent, Qt, QTimer, Signal
-from PySide6.QtGui import QBrush, QColor, QFont, QFontMetrics, QWheelEvent
+from PySide6.QtGui import QFont, QFontMetrics
 from PySide6.QtWidgets import (
     QCheckBox,
-    QComboBox,
     QDialog,
     QDialogButtonBox,
     QHBoxLayout,
@@ -22,7 +21,6 @@ from PySide6.QtWidgets import (
     QLineEdit,
     QMenu,
     QMessageBox,
-    QProgressBar,
     QPushButton,
     QTableWidget,
     QTableWidgetItem,
@@ -140,7 +138,7 @@ class SensorComparisonTable(QWidget):
 
         self.search_input = QLineEdit()
         self.search_input.setPlaceholderText(
-            "Try: 'stereolabs cameras', 'sensors with fps>30', or 'ROS 2 under $500'"
+            "Try: 'stereolabs cameras', 'sensors with fps>30', or 'ROS2 under $500'"
         )
         search_layout.addWidget(self.search_input)
 

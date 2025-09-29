@@ -56,14 +56,14 @@ from reportlab.platypus.flowables import HRFlowable
 
 matplotlib.use("Agg")  # Non-interactive backend for PDF generation
 
-from ...utils import (
+from ...utils import (  # noqa: E402
     extract_numeric,
     extract_price_avg,
     extract_resolution,
     format_label,
 )
-from ..utils.font_manager import create_styled_font
-from ..utils.theme_manager import get_theme_manager
+from ..utils.font_manager import create_styled_font  # noqa: E402
+from ..utils.theme_manager import get_theme_manager  # noqa: E402
 
 logger = logging.getLogger(__name__)
 
@@ -143,7 +143,7 @@ class PDFGenerationThread(QThread):
         """Generate comprehensive PDF report with charts and analysis."""
         try:
             logger.info(f"Starting PDF generation to: {self.output_path}")
-            
+
             # Optimized margins for better space utilization while maintaining standardism
             doc = SimpleDocTemplate(
                 self.output_path,
@@ -209,7 +209,11 @@ class PDFGenerationThread(QThread):
             )
 
             body_style = ParagraphStyle(
-                "CustomBody", parent=styles["Normal"], fontSize=11, spaceAfter=6, leading=14
+                "CustomBody",
+                parent=styles["Normal"],
+                fontSize=11,
+                spaceAfter=6,
+                leading=14,
             )
 
             bold_body_style = ParagraphStyle(
@@ -286,7 +290,7 @@ class PDFGenerationThread(QThread):
             logger.info("PDF generation completed successfully")
 
             return self.output_path
-            
+
         except Exception as e:
             logger.error(f"Failed to generate PDF report: {e}")
             logger.error(f"Error type: {type(e).__name__}")

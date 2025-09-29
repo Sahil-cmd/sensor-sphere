@@ -7,7 +7,7 @@ and integrated functionality.
 """
 
 import logging
-from typing import Any, Dict, List, Optional, Union
+from typing import Any, Dict, List
 
 from PySide6.QtCore import QEvent, Qt, QTimer, Signal
 from PySide6.QtGui import QAction, QKeySequence
@@ -601,16 +601,18 @@ class SensorComparisonMainWindow(QMainWindow):
     # Enhanced repository signal handlers
     def on_repository_sensors_loaded(self, sensors: List[Dict[str, Any]]) -> None:
         """Handle sensors loaded from enhanced repository."""
-        self.sensors_data = sensors
+        # Store complete dataset on initial load only
+        if self.is_initial_load:
+            self.sensors_data = sensors
         self.filtered_sensors = sensors.copy()
 
         # Update widgets with new data
         self.comparison_table.update_sensors_data(sensors)
 
-        # Only update price range on initial load, not for filtered results
-        # This prevents the circular update that resets user's price selections
+        # Always use complete dataset for filter options to ensure all options are available
+        # Only update price range on initial load to prevent resetting user's price selections
         self.filter_widget.update_filter_options(
-            sensors, update_price_range=self.is_initial_load
+            self.sensors_data, update_price_range=self.is_initial_load
         )
 
         # Emit internal signal for any connected widgets
