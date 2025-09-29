@@ -1,0 +1,105 @@
+schema_version: "1.0"
+
+sensor_id: "roboception_rc_visard_160_monochrome"
+sensor_type: "Stereo Camera"
+manufacturer: "Roboception"
+model: "rc_visard 160 monochrome"
+
+resolution:
+  rgb:
+    width: 1280
+    height: 960
+  depth:
+    width: 1280
+    height: 960
+
+field_of_view:
+  horizontal: 61.0
+  vertical: 48.0
+  notes: "4mm lens (standard focal length)"
+
+min_range: 0.5
+max_range: 100.0
+
+frame_rate: 25.0
+frame_rate_unit: "FPS"
+frame_rate_options:
+  "Full (1280x960)": "1"
+  "High (640x480)": "3"
+  "Medium (320x240)": "15"
+  "Low (214x160)": "25"
+
+latency: 150.0
+latency_unit: "ms"
+
+environmental_rating: "None"
+communication_interface: "Gigabit Ethernet"
+
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+
+driver_link_ros1: "https://github.com/roboception/rc_genicam_driver_ros"
+driver_link_ros2: "https://github.com/roboception/rc_genicam_driver_ros2"
+datasheet_link: "https://roboception.com/wp-content/uploads/Datasheet-rc_visard-24.05-web.pdf"
+product_page: "https://roboception.com/3d-stereo-vision/rc-visard-3d-stereo-sensor/"
+
+key_features:
+  - "Passive stereo vision with monochrome sensors"
+  - "On-board processing with Nvidia Tegra K1"
+  - "Visual-Inertial Navigation System (VINS)"
+  - "Ego-motion estimation at 200Hz"
+  - "Global shutter cameras"
+  - "Factory calibrated stereo baseline"
+  - "Three times more light-sensitive than color cameras"
+  - "GenICam and GigE Vision interfaces"
+
+use_cases:
+  - "High precision at larger working distances"
+  - "Static mounting above scenes"
+  - "Mobile robotics navigation"
+  - "Bin picking in variable lighting"
+  - "Quality inspection"
+  - "3D reconstruction"
+  - "Poor lighting conditions"
+
+tags:
+  - "stereo"
+  - "3d-vision"
+  - "monochrome"
+  - "long-range"
+  - "navigation"
+  - "low-light"
+
+supported_platforms:
+  - "Linux"
+  - "Windows"
+
+power_consumption: 25.0
+power_consumption_unit: "W"
+
+weight: 0.84
+weight_unit: "kg"
+
+size:
+  length: 230
+  width: 84
+  height: 75
+  unit: "mm"
+
+storage_temperature: "-25°C to 70°C"
+operating_temperature: "0°C to 50°C"
+
+data_output_formats:
+  - "Point clouds"
+  - "Depth images"
+  - "Monochrome images"
+  - "Confidence maps"
+  - "3D reconstructions"
+
+notes: "Optimized for applications with viewing distances greater than 50cm that do not require color differentiation. Three times more light-sensitive than color cameras, hence reliably works even in poor/variable lighting conditions."
+
+# Additional rc_visard specific fields following established patterns
+baseline: 160.0  # mm
+processing_unit: "Nvidia Tegra K1"
+supply_voltage: "18V to 30V DC"
