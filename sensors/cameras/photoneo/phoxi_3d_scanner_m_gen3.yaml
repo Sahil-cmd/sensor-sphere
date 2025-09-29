@@ -1,0 +1,149 @@
+schema_version: "1.0"
+
+sensor_id: "photoneo_phoxi_3d_scanner_m_gen3"
+sensor_type: "Structured Light Camera"
+manufacturer: "Photoneo"
+model: "PhoXi 3D Scanner M Gen3"
+
+resolution:
+  depth:
+    width: 2472
+    height: 2064  # 5.1 Mpix
+  rgb:
+    width: 3264   # Up to 8 Mpix (estimated based on typical aspect ratios)
+    height: 2448
+
+field_of_view:
+  horizontal: 48.8
+  vertical: 34.5
+  notes: "Calculated from datasheet sweet spot area (depth sensor). Diagonal: 59.8°"
+
+min_range: 0.458  # meters (458mm)
+max_range: 1.118  # meters (1118mm)
+
+frame_rate: null  # Variable scanning time 250-2500ms
+frame_rate_unit: "FPS"
+
+latency: 250.0  # ms minimum scanning time
+latency_unit: "ms"
+
+environmental_rating: null
+communication_interface: "1 Gbit Ethernet"
+
+ros_compatibility:
+  - "ROS1" 
+  - "ROS2"
+
+driver_link_ros1: "https://github.com/photoneo/phoxi_camera/tree/master"
+driver_link_ros2: "https://github.com/Automation-Research-Team/aist_phoxi_camera/tree/ros2-devel (3rd party)"
+
+datasheet_link: "https://photoneo.com/kb/device-resources"
+github_repo: "https://github.com/photoneo/phoxi_camera"
+product_page: "https://www.photoneo.com/phoxi-3d-scanner/"
+
+key_features:
+  - "5.1 MP 3D resolution"
+  - "Integrated 8 MP color camera"
+  - "Blue laser technology" 
+  - "60% more 3D points than Gen2"
+  - "Up to 2.5x better scan completeness"
+  - "20 dB higher dynamic range"
+  - "Autonomous maintenance - no marker patterns needed"
+  - "GigE Vision 2.1 compatibility"
+  - "NVIDIA Jetson TX2 processing"
+  - "Handles challenging surfaces (black plastic, reflective metal)"
+  - "Operates in direct sunlight"
+  - "Zero maintenance downtime"
+  - "Carbon fiber body"
+  - "MultiView parallel scanning support"
+
+use_cases:
+  - "Precision inspection"
+  - "Bin picking"
+  - "Depalletization" 
+  - "Machine tending"
+  - "Digital twinning"
+  - "AI inference"
+  - "Quality control"
+  - "Defect detection"
+  - "Color-based sorting"
+  - "Texture analysis"
+  - "Assembly verification"
+
+tags:
+  - "industrial"
+  - "3d scanner"
+  - "structured light"
+  - "high resolution"
+  - "blue laser"
+  - "gen3"
+  - "color"
+  - "precision"
+
+price_range:
+  min_price: 20000.0
+  max_price: 35000.0
+  currency: "USD"
+
+supported_platforms:
+  - "Linux"
+  - "Windows"
+
+power_consumption: null  # PoE or 24V (power not specified in W)
+power_consumption_unit: null
+
+size:
+  length: 439.0  # mm
+  width: 68.0    # mm  
+  height: 86.0   # mm
+  unit: "mm"
+
+weight: 950.0
+weight_unit: "g"
+
+operating_temperature: "0°C to 40°C (Full), 22°C to 25°C (Optimal)"
+storage_temperature: null
+
+data_output_formats:
+  - "3D points (x,y,z)"
+  - "Normals (x,y,z)" 
+  - "Depth Map (z)"
+  - "Color Image"
+  - "Texture (grayscale/RGB)"
+  - "Confidence (float)"
+
+notes: "Flagship 3D scanner for static scenes with breakthrough Gen3 technology. Features 5.1 MP 3D resolution, integrated 8 MP color camera, and blue laser for superior performance on challenging surfaces. Includes autonomous maintenance, zero downtime recalibration, and GigE Vision compatibility for seamless integration."
+
+# Advanced 3D scanner specifications (following pattern of existing LiDAR sensors)
+accuracy:
+  near: "1.31‰ relative distance accuracy"
+  sweet_spot: "0.94‰ relative distance accuracy" 
+  far: "1.01‰ relative distance accuracy"
+
+global_planarity:
+  near: "0.19 mm"
+  sweet_spot: "0.20 mm"
+  far: "0.59 mm"
+
+local_planarity:
+  near: "0.17 mm" 
+  sweet_spot: "0.14 mm"
+  far: "0.40 mm"
+
+temporal_noise:
+  near: "0.02 mm"
+  sweet_spot: "0.03 mm" 
+  far: "0.06 mm"
+
+point_to_point_distance:
+  near: "0.16 mm"
+  sweet_spot: "0.23 mm"
+  far: "0.39 mm"
+
+scanning_area: "590 x 404 mm @ 650 mm (sweet spot)"
+baseline: 350.0  # mm
+optimal_scanning_distance: 650.0  # mm
+scanning_time_range: "250 - 2500 ms"
+projection_laser_color: "Blue"
+processing_unit: "NVIDIA Jetson TX2"
+

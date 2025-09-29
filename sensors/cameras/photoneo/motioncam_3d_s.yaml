@@ -1,0 +1,106 @@
+schema_version: "1.0"
+
+sensor_id: "photoneo_motioncam_3d_s"
+sensor_type: "Structured Light Camera"
+manufacturer: "Photoneo"
+model: "MotionCam-3D S"
+
+resolution:
+  depth:
+    width: 1600
+    height: 1200
+
+field_of_view:
+  horizontal: 44.8
+  vertical: 32.8
+  notes: "Calculated from specifications (depth sensor). Diagonal: 55.6°"
+
+min_range: 0.366  # meters (366mm)
+max_range: 0.558  # meters (558mm)
+
+frame_rate: 20.0
+frame_rate_unit: "FPS"
+
+latency: 10.0  # ms (data acquisition time)
+latency_unit: "ms"
+
+environmental_rating: "IP65"
+communication_interface: "Ethernet"
+
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+
+driver_link_ros1: "https://github.com/photoneo/phoxi_camera/tree/master"
+driver_link_ros2: "https://github.com/Automation-Research-Team/aist_phoxi_camera/tree/ros2-devel (3rd party)"
+
+datasheet_link: "https://cdn.graftek.com/wp-content/uploads/2022/05/06165339/MotionCam-3DS-Datasheet12_2020.pdf"
+github_repo: "https://github.com/photoneo/phoxi_camera"
+product_page: "https://www.photoneo.com/products/motioncam-3d-s/"
+
+key_features:
+  - "Parallel Structured Light technology"
+  - "Highest accuracy 3D camera for small scenes"
+  - "Motion blur resistance up to 40 m/s"
+  - "Single snapshot acquisition"
+  - "Patented CMOS sensor design"
+  - "NVIDIA Pascal GPU with 256 CUDA cores"
+  - "15 million 3D points per second"
+  - "Resistant to vibrations and ambient light"
+  - "IP65 rated housing"
+  - "Power over Ethernet (PoE)"
+  - "Thermal calibration"
+  - "Compact design for close-range applications"
+
+use_cases:
+  - "Precision bin picking"
+  - "Small object handling"
+  - "Close-range inspection"
+  - "Fine detail reconstruction"
+  - "High-precision automation"
+  - "Robotic assembly"
+  - "Quality control"
+  - "Small parts analysis"
+
+tags:
+  - "industrial"
+  - "3d vision"
+  - "structured light"
+  - "high precision"
+  - "close range"
+  - "motion resistant"
+  - "ip65"
+
+price_range:
+  min_price: 12000.0
+  max_price: 20000.0
+  currency: "USD"
+
+supported_platforms:
+  - "Linux"
+  - "Windows"
+
+power_consumption: 33.6
+power_consumption_unit: "W"
+
+size:
+  length: 307.0  # mm (308mm from one spec, 307mm from datasheet)
+  width: 68.0    # mm
+  height: 80.0   # mm
+  unit: "mm"
+
+weight: 1300.0  # g (using datasheet weight)
+weight_unit: "g"
+
+operating_temperature: "Full operation range"
+storage_temperature: null
+
+data_output_formats:
+  - "3D point cloud (x,y,z)"
+  - "Depth map"
+  - "Normals (x,y,z)"
+  - "Confidence map"
+  - "Texture (grayscale)"
+
+notes: "Compact 3D camera optimized for small scenes requiring highest possible accuracy. Utilizes Parallel Structured Light technology for precise close-range 3D reconstruction without motion blur. Ideal for precision applications in confined spaces."
+

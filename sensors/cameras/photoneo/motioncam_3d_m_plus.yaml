@@ -1,0 +1,104 @@
+schema_version: "1.0"
+
+sensor_id: "photoneo_motioncam_3d_m_plus"
+sensor_type: "Structured Light Camera"
+manufacturer: "Photoneo"
+model: "MotionCam-3D M+"
+
+resolution:
+  depth:
+    width: 1600
+    height: 1200
+
+field_of_view:
+  horizontal: 42.4
+  vertical: 34.8
+  notes: "Calculated from datasheet scanning area (depth sensor). Diagonal: 54.8°"
+
+min_range: 0.63  # meters (630mm)
+max_range: 1.574 # meters (1574mm)
+
+frame_rate: 20.0
+frame_rate_unit: "FPS"
+
+latency: 10.0  # ms (data acquisition time)
+latency_unit: "ms"
+
+environmental_rating: "IP65"
+communication_interface: "Ethernet"
+
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+
+driver_link_ros1: "https://github.com/photoneo/phoxi_camera/tree/master"
+driver_link_ros2: "https://github.com/Automation-Research-Team/aist_phoxi_camera/tree/ros2-devel (3rd party)"
+
+datasheet_link: "https://cdn.graftek.com/wp-content/uploads/2022/05/06165328/MotionCam-3DMplus-Datasheet12_2020.pdf"
+github_repo: "https://github.com/photoneo/phoxi_camera"
+product_page: "https://www.photoneo.com/products/motioncam-3d-m-plus/"
+
+key_features:
+  - "Parallel Structured Light technology"
+  - "World's highest-resolution 3D camera for dynamic scenes"
+  - "Motion blur resistance up to 40 m/s"
+  - "Single snapshot acquisition"
+  - "Patented CMOS sensor design"
+  - "NVIDIA Pascal GPU with 256 CUDA cores"
+  - "15 million 3D points per second"
+  - "Resistant to vibrations and ambient light"
+  - "IP65 rated housing"
+  - "Power over Ethernet (PoE)"
+  - "Thermal calibration"
+
+use_cases:
+  - "Bin picking"
+  - "Depalletizing"
+  - "Object handling in motion"
+  - "Dynamic scene reconstruction"
+  - "Industrial automation"
+  - "Robotic vision"
+  - "Quality inspection"
+  - "Motion analysis"
+
+tags:
+  - "industrial"
+  - "3d vision"
+  - "structured light"
+  - "high speed"
+  - "motion resistant"
+  - "ip65"
+
+price_range:
+  min_price: 15000.0
+  max_price: 25000.0
+  currency: "USD"
+
+supported_platforms:
+  - "Linux"
+  - "Windows"
+
+power_consumption: 33.6
+power_consumption_unit: "W"
+
+size:
+  length: 427.0  # mm
+  width: 68.0    # mm
+  height: 80.0   # mm
+  unit: "mm"
+
+weight: 1400.0
+weight_unit: "g"
+
+operating_temperature: "Full operation range"
+storage_temperature: null
+
+data_output_formats:
+  - "3D point cloud (x,y,z)"
+  - "Depth map"
+  - "Normals (x,y,z)"
+  - "Confidence map"
+  - "Texture (grayscale)"
+
+notes: "World's highest-resolution 3D camera for dynamic scenes using patented Parallel Structured Light technology. Ideal for high-speed robotic applications requiring precise 3D data of moving objects. Features motion blur resistance, vibration immunity, and industrial-grade construction with IP65 protection."
+
