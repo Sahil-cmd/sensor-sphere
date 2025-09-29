@@ -652,7 +652,7 @@ class ROSConfigWidget(QWidget):
         self.generate_button.setEnabled(True)
         self.open_folder_button.setEnabled(True)
 
-        self.status_label.setText(f"URDF files generated successfully!")
+        self.status_label.setText("URDF files generated successfully!")
 
         logger.info(f"URDF generation completed: {zip_path}")
 
@@ -660,8 +660,8 @@ class ROSConfigWidget(QWidget):
         reply = QMessageBox.question(
             self,
             "URDF Generation Complete",
-            f"URDF files have been generated successfully!\n\n"
-            f"Would you like to open the generated files?",
+            "URDF files have been generated successfully!\n\n"
+            "Would you like to open the generated files?",
             QMessageBox.Yes | QMessageBox.No,
             QMessageBox.Yes,
         )
