@@ -1,0 +1,101 @@
+schema_version: "1.0"
+
+sensor_id: "basler_aca1300_200um"
+sensor_type: "RGB Camera"
+manufacturer: "Basler"
+model: "acA1300-200um"
+
+resolution:
+  rgb:
+    width: 1280
+    height: 1024
+
+frame_rate: 203.0
+frame_rate_unit: "FPS"
+frame_rate_options:
+  "fast_mode": "203"
+  "normal_mode": "169"
+
+latency: null
+latency_unit: null
+
+environmental_rating: "None"
+communication_interface: "USB 3.0"
+
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+
+driver_link_ros1: "https://github.com/basler/pylon-ros-camera/tree/master"
+driver_link_ros2: "https://github.com/basler/pylon-ros-camera"
+
+datasheet_link: "https://www.nexinstrument.com/assets/images/pdf/ACA1300-200UC.pdf"
+github_repo: "https://github.com/basler/pylon-ros-camera"
+product_page: "https://www.baslerweb.com/en/shop/aca1300-200um/"
+
+key_features:
+  - "Global shutter CMOS sensor"
+  - "onsemi PYTHON NOIP1SN1300A sensor"
+  - "USB 3.0 SuperSpeed interface"
+  - "High frame rate up to 203 fps"
+  - "C-mount lens compatibility"
+  - "1 opto-coupled input line"
+  - "1 opto-coupled output line" 
+  - "2 general purpose I/O (GPIO) lines"
+  - "Hardware/software/free run triggering"
+  - "Progressive scan CMOS"
+  - "1/2 inch sensor format"
+  - "4.8 x 4.8 μm pixel size"
+
+use_cases:
+  - "Industrial inspection"
+  - "Machine vision"
+  - "Motion analysis"
+  - "Quality control"
+  - "Robotic vision"
+  - "Real-time monitoring"
+  - "Color-based sorting"
+
+tags:
+  - "industrial"
+  - "high speed"
+  - "global shutter"
+  - "color"
+  - "usb3"
+  - "ace u"
+
+price_range:
+  min_price: 800.0
+  max_price: 1200.0
+  currency: "USD"
+
+supported_platforms:
+  - "Linux"
+  - "Windows"
+  - "macOS"
+  - "Other"
+
+power_consumption: 3.0
+power_consumption_unit: "W"
+
+size:
+  length: 48.2  # mm (with lens mount and connectors)
+  width: 29.0   # mm
+  height: 29.0  # mm
+  unit: "mm"
+
+weight: 80.0
+weight_unit: "g"
+
+operating_temperature: "0°C to 50°C"
+storage_temperature: "-20°C to 80°C"
+
+data_output_formats:
+  - "RGB8"
+  - "BGR8"
+  - "Bayer_RGGB8"
+  - "Bayer_GBRG8"
+  - "Bayer_GRBG8"
+  - "Bayer_BGGR8"
+
+notes: "High-performance industrial color camera with global shutter CMOS sensor and onsemi PYTHON 1300 technology. Features 1.3 MP resolution at up to 203 fps, ideal for high-speed color inspection and machine vision applications. Supports multiple triggering modes and extensive I/O capabilities."

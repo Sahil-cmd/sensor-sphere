@@ -1,0 +1,107 @@
+schema_version: "1.0"
+
+sensor_id: "basler_aca1920_150uc"
+sensor_type: "RGB Camera"
+manufacturer: "Basler"
+model: "acA1920-150uc"
+
+resolution:
+  rgb:
+    width: 1920
+    height: 1200
+
+frame_rate: 150.0
+frame_rate_unit: "FPS"
+frame_rate_options:
+  "fast_mode": "150"
+  "normal_mode": "112"
+
+latency: null
+latency_unit: null
+
+environmental_rating: "None"
+communication_interface: "USB 3.0"
+
+ros_compatibility:
+  - "ROS1"
+  - "ROS2"
+
+driver_link_ros1: "https://github.com/basler/pylon-ros-camera/tree/master"
+driver_link_ros2: "https://github.com/basler/pylon-ros-camera"
+
+datasheet_link: "https://docs.baslerweb.com/aca1920-150uc"
+github_repo: "https://github.com/basler/pylon-ros-camera"
+product_page: "https://www.baslerweb.com/en-sg/shop/aca1920-150uc/"
+
+key_features:
+  - "Global shutter CMOS sensor"
+  - "onsemi PYTHON NOIP1SE2000A sensor"
+  - "USB 3.0 SuperSpeed interface"
+  - "High frame rate up to 150 fps"
+  - "2.3 MP resolution"
+  - "C-mount lens compatibility"
+  - "1 opto-coupled input line"
+  - "1 opto-coupled output line"
+  - "2 general purpose I/O (GPIO) lines"
+  - "Hardware/software/free run triggering"
+  - "Progressive scan CMOS"
+  - "2/3 inch sensor format"
+  - "4.8 x 4.8 μm pixel size"
+  - "IR cut filter included"
+
+use_cases:
+  - "Industrial inspection"
+  - "Machine vision"
+  - "Motion analysis"
+  - "Quality control"
+  - "Robotic vision"
+  - "Real-time monitoring"
+  - "Color-based quality assurance"
+  - "High-speed imaging"
+
+tags:
+  - "industrial"
+  - "high speed"
+  - "global shutter"
+  - "color"
+  - "usb3"
+  - "ace u"
+  - "2.3mp"
+
+price_range:
+  min_price: 1200.0
+  max_price: 1800.0
+  currency: "USD"
+
+supported_platforms:
+  - "Linux"
+  - "Windows"
+  - "macOS"
+  - "Other"
+
+power_consumption: 3.9
+power_consumption_unit: "W"
+
+size:
+  length: 48.2  # mm (with lens mount and connectors)
+  width: 29.0   # mm
+  height: 29.0  # mm
+  unit: "mm"
+
+weight: 80.0
+weight_unit: "g"
+
+operating_temperature: "0°C to 50°C"
+storage_temperature: "-20°C to 80°C"
+
+data_output_formats:
+  - "RGB8"
+  - "BGR8"
+  - "Bayer_RGGB8"
+  - "Bayer_GBRG8"
+  - "Bayer_GRBG8"
+  - "Bayer_BGGR8"
+  - "RGB10"
+  - "BGR10"
+
+notes: "High-performance industrial color camera with 2.3 MP resolution and onsemi PYTHON 2000 sensor technology. Features up to 150 fps frame rate with global shutter for high-speed color imaging applications. Includes IR cut filter for accurate color reproduction and extensive I/O capabilities for industrial integration."
