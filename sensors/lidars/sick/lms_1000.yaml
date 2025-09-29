@@ -3,7 +3,7 @@ schema_version: "1.0"
 sensor_id: "sick_lms1000"
 sensor_type: "LiDAR"
 manufacturer: "SICK"
-model: "LMS1000 (LMS1104C-111031S01)"
+model: "LMS1000 (LMS1104C)"
 
 measurement_principle: "HDDM+"
 channels: 1

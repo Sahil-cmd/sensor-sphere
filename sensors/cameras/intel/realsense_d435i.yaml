@@ -64,8 +64,8 @@ tags:
   - "mobile robotics"
 
 price_range:
-  min_price: 249.0
-  max_price: 249.0
+  min_price: 500.0
+  max_price: 700.0
   currency: "USD"
 
 supported_platforms:
