@@ -9,17 +9,17 @@ import matplotlib
 
 matplotlib.use("Qt5Agg")  # Use Qt backend for matplotlib
 
-import logging
-from typing import Any, Dict, List
+import logging  # noqa: E402
+from typing import Any, Dict, List  # noqa: E402
 
-import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
-from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
-from matplotlib.figure import Figure
-from matplotlib.patches import Patch
-from PySide6.QtCore import QSize, Qt, QThread, Signal
-from PySide6.QtWidgets import (
+import matplotlib.pyplot as plt  # noqa: E402
+import numpy as np  # noqa: E402
+import pandas as pd  # noqa: E402
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas  # noqa: E402
+from matplotlib.figure import Figure  # noqa: E402
+from matplotlib.patches import Patch  # noqa: E402
+from PySide6.QtCore import QSize, Qt, QThread, Signal  # noqa: E402
+from PySide6.QtWidgets import (  # noqa: E402
     QButtonGroup,
     QCheckBox,
     QComboBox,
@@ -41,7 +41,7 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from ...utils import (
+from ...utils import (  # noqa: E402
     extract_fov,
     extract_numeric,
     extract_price_avg,
@@ -49,11 +49,11 @@ from ...utils import (
     extract_ros_compatibility,
     format_label,
 )
-from ..utils.font_manager import create_styled_font
-from ..utils.theme_manager import get_theme_manager
-from .pdf_export_widget import PDFExportWidget
-from .radar_chart_widget import RadarChartWidget
-from .ros_config_widget import ROSConfigWidget
+from ..utils.font_manager import create_styled_font  # noqa: E402
+from ..utils.theme_manager import get_theme_manager  # noqa: E402
+from .pdf_export_widget import PDFExportWidget  # noqa: E402
+from .radar_chart_widget import RadarChartWidget  # noqa: E402
+from .ros_config_widget import ROSConfigWidget  # noqa: E402
 
 logger = logging.getLogger(__name__)
 
@@ -761,7 +761,7 @@ class ChartGenerationThread(QThread):
         if "latency" in self.attributes and "latency_display" in df.columns:
             # Use latency_display data for latency charts, extracting numeric values
             logger.debug(
-                f"[LATENCY FIX] Mapping latency_display to latency for chart generation"
+                "[LATENCY FIX] Mapping latency_display to latency for chart generation"
             )
             df["latency"] = df["latency_display"].apply(extract_numeric)
             logger.debug(
